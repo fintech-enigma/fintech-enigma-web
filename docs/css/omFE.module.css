@@ -1,0 +1,8 @@
+.HovedLogo{
+    background-image: url(../graphics/OneLinerDark.svg);
+    width: 20rem;
+    height: 5rem;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
