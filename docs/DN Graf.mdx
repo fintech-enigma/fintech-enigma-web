@@ -1,0 +1,28 @@
+## Vår portefølje på DN Fantacyfond. 
+
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import parse from 'html-react-parser';
+
+export const Graf = ({children}) => {
+    const [ GrafSVG, setgrafSVG ] = useState(null);
+    const [ GrafCSS, setgrafCSS ] = useState(null);
+    useEffect( () => {
+        // Merk en midlertidig URL som henter fra den lokale serveren du selv må ha satt opp for Fintech Enigma API'en
+        // Se https://github.com/fintech-enigma/fintech-enigma-api.
+        axios.get('http://127.0.0.1:5000/Fantacyfond_Historisk/')
+        .then(res => {
+            console.log(res);
+            setgrafSVG(res.data.data.svg);
+            setgrafCSS(res.data.data.CSS);
+        });
+    }, []);
+    return (
+        <div>
+            <style>{GrafCSS}</style>
+            {parse(String(GrafSVG || '<p>Laster graf ...</p>'))}
+        </div>  
+    );
+}
+
+<Graf></Graf>
