@@ -25,6 +25,11 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'Porteføljeoversikt',
+      items: ['DN Graf'],
+    },
+    {
+      type: 'category',
       label: 'For Studenter',
       items: ['Hovedstyret'],
     },
@@ -35,5 +40,4 @@ const sidebars = {
     }
   ],
 };
-
 module.exports = sidebars;
