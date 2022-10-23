@@ -9,7 +9,7 @@ export const Graf = ({children}) => {
     const [ GrafCSS, setgrafCSS ] = useState(null);
     useEffect( () => {
         // Merk en midlertidig URL som henter fra den lokale serveren du selv må ha satt opp for Fintech Enigma API'en
-        // Se https://github.com/fintech-enigma/fintech-enigma-backend.
+        // Se https://github.com/fintech-enigma/fintech-enigma-api.
         axios.get('http://127.0.0.1:5000/Fantacyfond_Historisk/')
         .then(res => {
             console.log(res);
