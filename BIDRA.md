@@ -22,7 +22,7 @@ Klikk på Fork-knappen oppe i høyre hjørne.
 
 <br>
 
-### 4. Finn **din** fork under dine repositories.
+### 4. Finn **din** fork under **dine** repositories.
 
 <img width="946" alt="Bilde 3" src="https://user-images.githubusercontent.com/70739893/197613004-c3bd4b0e-ff17-4730-bb86-9503e255308a.png">
 
@@ -54,7 +54,7 @@ Klikk på Fork-knappen oppe i høyre hjørne.
 
 ### 9. Klon git-repoet:
 
-- **NB:** Lim inn den linken du kopierte. 
+- **NB:** Lim inn den lenken du kopierte. 
     ````
     git clone https://github.com/<username>/fintech-enigma-web.git
     ````
@@ -69,7 +69,7 @@ cd fintech-enigma-web
 
 <br>
 
-### 11. Kjør installeringsprosessen.
+### 11. Kjør installasjonsprosessen.
 
 - **NB:** Pass på at du fortsatt er i riktig mappe. 
 
@@ -129,9 +129,9 @@ git pull
 
 2. Sjekk at koden din ikke ødelegger for noen andres arbeid. 
 
-3. Sjekk at du har skrevet forklarende kommentarer til koden din, har brukt menigsfulle variabelnavn og er skrevet på en  ryddig og oversiktlig måte, slik at det er lett for andre å forstå. 
+3. Sjekk at du har skrevet forklarende kommentarer til koden din, har brukt menigsfulle variabelnavn og at koden din er skrevet på en ryddig og oversiktlig måte. Dette er for at det skal være lett for andre å forstå. 
 
-4. Skriv dine endringer fullført med initialer og dato i [UTVIKLING.md](./UTVIKLING.md). 
+4. Skriv hva du jobber med, fullført med initialer og dato i [UTVIKLING.md](./UTVIKLING.md). (Se i filen hvordan du skal føre). 
 
 <br>
 
