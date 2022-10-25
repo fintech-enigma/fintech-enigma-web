@@ -40,6 +40,8 @@ Hjemmesiden til Fintech Enigma. Laget i Docusaurs av studenter ved [ITØK](https
 
 5. Lag en pull request med dine endringer, så svarer vi så fort vi klarer :)
 
+- For en full guide til bidrag se gjerne egen [fil](./BIDRA.md). 
+
 ## Kontakt.
 
 Vi er å kontakte på mail: 
