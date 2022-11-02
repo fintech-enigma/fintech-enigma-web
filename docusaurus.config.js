@@ -61,7 +61,9 @@ const config = {
             position: 'left',
             label: 'Om Fintech Enigma',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          {to: '/docs/Vedtekter', label: 'Vedtekter', position: 'left'},
+          {to: '/docs/DN Graf', label: 'Portefølje', position: 'left'},
+          {to: '/blog', label: 'Blogg', position: 'left'},
           {
             href: 'https://github.com/fintech-enigma',
             label: 'GitHub',
