@@ -31,12 +31,12 @@ const sidebars = {
     {
       type: 'category',
       label: 'For Studenter',
-      items: ['Hovedstyret'],
+      items: ['Bli_med_i_Fintech', 'Hovedstyret'],
     },
     {
       type: 'category',
       label: 'For Bedrifter',
-      items: ['Bedriftpresentasjoner'],
+      items: ['Bedriftpresentasjoner','Kontakt_oss'],
     }
   ],
 };
