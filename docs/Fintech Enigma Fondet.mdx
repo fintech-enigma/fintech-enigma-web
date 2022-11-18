@@ -1,0 +1,80 @@
+
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import parse from 'html-react-parser';
+
+import { Line } from 'react-chartjs-2';
+import { Chart, registerables } from 'chart.js';
+Chart.register(...registerables);
+
+<!-- 
+export const Graf = ({children}) => {
+    const [ GrafSVG, setgrafSVG ] = useState(null);
+    const [ GrafCSS, setgrafCSS ] = useState(null);
+    useEffect( () => {
+        // Merk en midlertidig URL som henter fra den lokale serveren du selv må ha satt opp for Fintech Enigma API'en
+        // Se https://github.com/fintech-enigma/fintech-enigma-api.
+        axios.get('http://127.0.0.1:5000/Fantacyfond_Historisk/')
+        .then(res => {
+            console.log(res);
+            setgrafSVG(res.data.data.svg);
+            setgrafCSS(res.data.data.CSS);
+        });
+    }, []);
+    return (
+        <div>
+            <style>{GrafCSS}</style>
+            {parse(String(GrafSVG || '<p>Laster graf ...</p>'))}
+        </div>  
+    );
+}
+
+<Graf></Graf>
+
+-->
+
+<!-- Liksom graf til dataen er klar -->
+export const BarGraf = () => {
+    const [ dataset, setDataset ] = useState({});
+    useEffect( () => {
+        axios.get( ('/mockdata/test.json') )
+        .then(res => {
+            setDataset(res.data);
+        });
+    }, []);
+    const labels = Object.keys(dataset);
+    const data = labels.map(e => dataset[e]);
+    return (
+        <div>
+            <Line 
+                data={{
+                    labels: labels,
+                    datasets: [{
+                        label: 'Fintech Enigma Fondet',
+                        data: data,
+                        borderWidth: 1
+                    }]
+                }}
+                height={400}
+                width={600}
+                options={{
+                    scaleShowLabels : false,
+                    maintainAspectRatio: false,
+                    scales: {
+                        xAxes: [
+                            {
+                                ticks: {
+                                    display: false
+                            }
+                        }],
+                        y: {
+                            beginAtZero: false
+                        }
+                    }
+                }}
+            />
+        </div>
+    )
+}
+
+<BarGraf></BarGraf>

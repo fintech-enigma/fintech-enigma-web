@@ -26,7 +26,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Porteføljeoversikt',
-      items: ['DN Graf'],
+      items: ['Fintech Enigma Fondet'],
     },
     {
       type: 'category',
