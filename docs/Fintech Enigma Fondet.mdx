@@ -4,8 +4,8 @@ import axios from 'axios';
 import parse from 'html-react-parser';
 
 import { Line } from 'react-chartjs-2';
-import { Chart, registerables } from 'chart.js';
-Chart.register(...registerables);
+// import { Chart, registerables } from 'chart.js';
+// Chart.register(...registerables);
 
 <!-- 
 export const Graf = ({children}) => {
@@ -33,17 +33,23 @@ export const Graf = ({children}) => {
 
 -->
 
-<!-- Liksom graf til dataen er klar -->
-export const BarGraf = () => {
-    const [ dataset, setDataset ] = useState({});
+export const LineGraf = () => {
+    const [ dataset, setDataset ] = useState([]);
+    const [ labels, setLabels ] = useState([]);
     useEffect( () => {
-        axios.get( ('/mockdata/test.json') )
+        axios.get( ('https://fondet-fintechenigma.onrender.com/getFunds') )
         .then(res => {
-            setDataset(res.data);
+            console.log(res.data);
+            if(res.data.status === "OK"){
+                setDataset(res.data.dataset.map(e => e.price));
+                setLabels(res.data.dataset.map(e => e.time));
+                console.log(labels);
+            }
+            else{
+                alert(res.data.status);
+            }
         });
     }, []);
-    const labels = Object.keys(dataset);
-    const data = labels.map(e => dataset[e]);
     return (
         <div>
             <Line 
@@ -51,8 +57,11 @@ export const BarGraf = () => {
                     labels: labels,
                     datasets: [{
                         label: 'Fintech Enigma Fondet',
-                        data: data,
-                        borderWidth: 1
+                        data: dataset,
+                        borderWidth: 1,
+                        fill: false,
+                        lineTension: 0.1,
+                        borderColor: 'rgb(75, 192, 192)',
                     }]
                 }}
                 height={400}
@@ -62,9 +71,16 @@ export const BarGraf = () => {
                     maintainAspectRatio: false,
                     scales: {
                         xAxes: [
-                            {
-                                ticks: {
-                                    display: false
+                        {
+                            ticks: {
+                                display: true,
+                                autoSkip: true,
+                                maxTicksLimit: 10,
+                                callback: val => {
+                                    const [ day, date, Month ] = val.split(" ");
+                                    return `${day.slice(0,3)} ${date} ${Month.slice(0,3)}`;
+                                    // return `${date} ${Month.slice(0,3)}`;
+                                }
                             }
                         }],
                         y: {
@@ -77,4 +93,21 @@ export const BarGraf = () => {
     )
 }
 
-<BarGraf></BarGraf>
+export const Fondsammensetning = () => {
+    return <div>
+        <ul>
+            <li>Aksje 1 - x%</li>
+            <li>Aksje 2 - x%</li>
+            <li>Aksje 3 - x%</li>
+            <li>Aksje 4 - x%</li>
+            <li>Aksje 5 - x%</li>
+        </ul>
+    </div>
+}
+
+
+<LineGraf></LineGraf>
+
+## Dette er fondets sammensetning.
+
+<Fondsammensetning />
