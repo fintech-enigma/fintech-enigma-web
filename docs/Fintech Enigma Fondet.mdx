@@ -86,7 +86,21 @@ export const LineGraf = () => {
                         y: {
                             beginAtZero: false
                         }
-                    }
+                    },
+                    elements: {
+                        point:{
+                            radius: 0
+                        }
+                    },
+                    hover: {
+                        intersect: false,
+                        mode: 'index'
+                    },
+                    plugins: {
+                        tooltip: {
+                          intersect: false
+                        }
+                      }
                 }}
             />
         </div>
@@ -94,7 +108,7 @@ export const LineGraf = () => {
 }
 
 export const Fondsammensetning = () => {
-    return <div>
+    return (<div>
         <ul>
             <li>Aksje 1 - x%</li>
             <li>Aksje 2 - x%</li>
@@ -102,7 +116,7 @@ export const Fondsammensetning = () => {
             <li>Aksje 4 - x%</li>
             <li>Aksje 5 - x%</li>
         </ul>
-    </div>
+    </div>);
 }
 
 

@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Fintech Enigma',
-  tagline: 'Fintech er kult',
+  tagline: 'Bindeleddet mellom ITØK studenter og næringslivet',
   url: 'https://github.com/fintech-enigma/fintech-enigma-web',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -62,7 +62,7 @@ const config = {
             label: 'Om Fintech Enigma',
           },
           {to: '/docs/Vedtekter', label: 'Vedtekter', position: 'left'},
-          {to: '/docs/DN Graf', label: 'Portefølje', position: 'left'},
+          // {to: '/docs/DN Graf', label: 'Portefølje', position: 'left'},
           {to: '/blog', label: 'Blogg', position: 'left'},
           {
             href: 'https://github.com/fintech-enigma',
