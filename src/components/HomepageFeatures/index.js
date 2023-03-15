@@ -2,10 +2,16 @@ import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
 
+
+function toggleDarkMode () {
+  var element = document.body;
+  element.classList.toggle("dark-mode")
+}
+
 const FeatureList1 = [
   {
-    title: 'PORTEFØLJE',
-    url: "docs/Fintech%20Enigma%20Fondet"
+    title: 'OM OSS',
+    url: "docs/Om Fintech Enigma"
     //Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default
   }
 ];
