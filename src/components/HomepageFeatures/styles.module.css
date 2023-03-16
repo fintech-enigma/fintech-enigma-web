@@ -1,7 +1,9 @@
 .features {
   align-items: center;
   padding: 2rem 0;
-  width: 100%;
+  width: 40%;
+  height: 40%;
+  margin: auto;
 }
 
 .features > .container {
@@ -19,31 +21,43 @@
 .title{
   cursor: pointer;
   margin: auto;
-  border: solid 4px #06adf4;
-  border-radius: 50%;
-  width: 200px;
-  height: 200px;
-  transition: 250ms;
-}
-
-.title:hover{
-  
-}
-
-.title{
-  transition: 250ms;  
+  border: solid 11px #06adf4;
+  border-radius: 100%;
+  width: 219px;
+  height: 219px;
+  transition: 270ms;
   text-align: center;
 }
 
-.title>a{
+.title > a{
   text-decoration: none;
 }
 
-.title>a:hover>{
-  text-decoration: none;
+.title > a > h1:hover{
+  font-size: 1.9rem;
+  transition: 250ms;
 }
 
-.title>a>h1:hover{
+
+.FeatureList1{
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.FeatureList1 > .title > a > h1 {
+  /* border-radius: 1%;
+  display: table-cell;
+  vertical-align: middle;
+  margin: auto; */
+  color: #e9f8ff;
+  font-size: 1.7rem;
+  line-height: 2rem;
+  margin-top: 4.9rem;
+}
+
+.FeatureList1 > .title > a > h1:hover{
+  transition: 250ms;
   font-size: 1.9rem;
 }
 
@@ -53,16 +67,4 @@
   line-height: 2rem;
   margin-top: 3.5rem;
   transition: 250ms;
-}
-
-.FeatureList1{
-  align-items: center;
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-}
-
-.featureSvg {
-  height: 200px;
-  width: 200px;
-  border-radius: 100%;
-}
+} 
