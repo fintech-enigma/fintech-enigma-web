@@ -31,7 +31,12 @@ const sidebars = {
     {
       type: 'category',
       label: 'For Studenter',
-      items: ['Bli_med_i_Fintech', 'Hovedstyret'],
+      items: ['Bli_med_i_Fintech'],
+    },
+    {
+      type: 'category',
+      label: 'Hovedstyret',
+      items: ['Styret 2023 2024'],
     },
     {
       type: 'category',
