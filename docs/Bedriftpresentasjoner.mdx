@@ -1,4 +1,18 @@
 # Bedriftspresentasjon med Enigma
+
+import styles from './css/Bedriftpresentasjon.module.css';
+
+export const Bilde = ({children, url, alt}) => {
+    return (
+        <div className={styles.img}>
+            <img src={url} alt={alt}/>
+            <p className={styles.alt}>{alt}</p>
+        </div>
+    )
+}
+
+<Bilde url={'/img/Bedpres_SS1_H22.jpg'} alt={'Enigma på bedriftpresentason hos SopraSteria-Bergen høsten 2022'}/>
+
 En bedriftspresentasjon er en mulighet for din bedrift å presentere seg selv, deres prosjekter og arbeidsplass. Det er også en gylden mulighet for dere å bli bedre kjent med ITØK-studentene som er en del av fintech-gruppen.   
 
 En bedriftspresentasjon med oss kan se slik ut: 
@@ -8,9 +22,9 @@ En bedriftspresentasjon med oss kan se slik ut:
 -  Gjennomgang av ulike prosjekter bedriften har holdt på med den siste tiden.  
 
 -  Mingling med mat og drikke hvor studentene har mulighet til å bli kjent med de ansatte.  
-###
 
-###
+<br/>
+
 #### Hva kan din bedrift forvente av oss? 
 
 - Stor interesse og gode relevante spørsmål til deres bedrift og prosjekter.  

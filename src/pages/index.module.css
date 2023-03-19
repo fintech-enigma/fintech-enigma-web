@@ -8,7 +8,11 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  background-color: #1a759b;
+  /* background-color: #1a759b; */
+  background-image: url('/img/Bubbles.jpeg');
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
   color:black; 
 }
 
@@ -22,4 +26,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #e9f8ff;
+}
+
+.buttons>a{
+  background-color: #06ADF4;
+  transition: 250ms;
+}
+.buttons>a:hover{
+  background-color: #10b7ff;
 }

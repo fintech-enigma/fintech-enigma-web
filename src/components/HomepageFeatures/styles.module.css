@@ -10,12 +10,29 @@
   align-items: center;
   display: grid;
   grid-template-rows: repeat(2, 1fr);
+  margin: auto;
+}
+
+@media screen and (max-width: 600px) {
+  .FeatureList1{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .FeatureList2{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.FeatureList1{
+  align-items: center;
 }
 
 .FeatureList2{
   align-items: center;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
 }
 
 .title{
@@ -38,33 +55,32 @@
   transition: 250ms;
 }
 
-
-.FeatureList1{
-  align-items: center;
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-}
-
 .FeatureList1 > .title > a > h1 {
   /* border-radius: 1%;
   display: table-cell;
   vertical-align: middle;
   margin: auto; */
-  color: #e9f8ff;
   font-size: 1.7rem;
   line-height: 2rem;
   margin-top: 4.9rem;
+}
+
+.title>a>h1{
+  font-size: 1.7rem;
+  line-height: 2rem;
+  margin-top: 3.5rem;
+  transition: 250ms;
+}
+
+html[data-theme='light'] {
+  --ifm-color-primary: #000;
+}
+
+html[data-theme='dark'] {
+  --ifm-color-primary: #e9f8ff;
 }
 
 .FeatureList1 > .title > a > h1:hover{
   transition: 250ms;
   font-size: 1.9rem;
 }
-
-.title>a>h1{
-  color: #e9f8ff;
-  font-size: 1.7rem;
-  line-height: 2rem;
-  margin-top: 3.5rem;
-  transition: 250ms;
-} 

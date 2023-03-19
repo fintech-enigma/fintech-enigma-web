@@ -92,7 +92,11 @@ const config = {
               },
               {
                 label: 'Instagram',
-                href: '#',
+                href: 'https://www.instagram.com/fintechenigma.uib/',
+              },
+              {
+                label: 'GitHub',
+                href: 'https://github.com/fintech-enigma',
               },
               {
                 label: 'Facebook',
@@ -101,16 +105,23 @@ const config = {
             ],
           },
           {
-            title: 'More',
+            title: 'Partnere',
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
+                html: `
+                  <a href="https://stacc.com"><img src="https://verdane.com/uploads/2022/06/stacc-logo.png?x95825" style="width: auto; height: 4rem;"></a>
+                `
               },
               {
-                label: 'GitHub',
-                href: 'https://github.com/fintech-enigma',
+                html: `
+                  <a href="https://www.soprasteria.no/home"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Sopra_Steria_logo.svg/2560px-Sopra_Steria_logo.svg.png" style="width: auto; height: 3rem;"></a>
+                `
               },
+              {
+                html: `
+                  <a href="https://vizir.no/"><img src="/img/vizir.png" style="width: auto; height: 3rem;"></a>
+                `
+              }
             ],
           },
         ],

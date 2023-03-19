@@ -1,8 +1,16 @@
-.lederDiv{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+@media screen and (max-width: 600px) {
+    .lederDiv{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
+@media screen and (min-width: 600px) {
+    .lederDiv{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
 
 .leder{
     width: 10rem;

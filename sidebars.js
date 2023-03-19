@@ -26,7 +26,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Porteføljeoversikt',
-      items: ['Fintech Enigma Fondet'],
+      items: ['Fondsforvaltning og Algoritmisk trading', 'Alogritmeportefølje' ,'Fintech Enigma Fantacy Fond'],
     },
     {
       type: 'category',
@@ -36,7 +36,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Hovedstyret',
-      items: ['Styret 2023 2024'],
+      items: ['Styret 2023 2024', 'Grunnleggere'],
     },
     {
       type: 'category',
