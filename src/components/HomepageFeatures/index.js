@@ -3,15 +3,10 @@ import clsx from 'clsx';
 import styles from './styles.module.css';
 
 
-function toggleDarkMode () {
-  var element = document.body;
-  element.classList.toggle("dark-mode")
-}
-
 const FeatureList1 = [
   {
-    title: 'OM OSS',
-    url: "docs/Om Fintech Enigma"
+    title: 'PORTEFØLJE',
+    url: "docs/Algoritmeportefølje"
     //Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default
   }
 ];
@@ -30,9 +25,10 @@ const FeatureList2 = [
 ];
 
 function Feature({title, url}) {
+  const mode = (localStorage.getItem('theme'));
   return (
     <div className={styles.title}>
-      <a href={url}><h1>{title}</h1></a>
+      <a href={url}><h1 className={mode}>{title}</h1></a>
     </div>
     // <div>
     //   <div className="text--center">

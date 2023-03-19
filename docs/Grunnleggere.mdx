@@ -1,10 +1,7 @@
-# Styret 2023/2024
+# Grunnleggere
 
-import parse from 'html-react-parser'
-import styles from './css/HovedStyret.module.css'
-
-import Ledere from './folk/ledelsen.json'
-import Ansvarlige from './folk/ansvarlige.json';
+import grunnleggere from './folk/grunnleggere.json';
+import styles from './css/HovedStyret.module.css';
 
 export const Header = ({children}) => {
     return (
@@ -35,12 +32,9 @@ export const FolkDiv = ({children, folk}) => {
 
 <!-- Markdown -->
 
-<Header>Ledelsen</Header>
-<hr/>
-<FolkDiv folk={Ledere} />
+Fintech Enigma ble startet høsten 2022 av de tre førsteårs studentene Edvard Mysen, Ocar Brettville og Nathaniel Stensen.
+Motivasjonen bak grunnleggelsen var en felles interesse for fintech og en driv om å øke kjenskapen til ITØK studiet. 
 
-<br/>
-
-<Header>Ansvarlige</Header>
-<hr/>
-<FolkDiv folk={Ansvarlige} />
+<Header>Grunnleggerne av Fintech Enigma</Header>
+<hr />
+<FolkDiv folk={grunnleggere}/>

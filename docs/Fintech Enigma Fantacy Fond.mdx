@@ -4,34 +4,6 @@ import axios from 'axios';
 import parse from 'html-react-parser';
 
 import { Line } from 'react-chartjs-2';
-// import { Chart, registerables } from 'chart.js';
-// Chart.register(...registerables);
-
-<!-- 
-export const Graf = ({children}) => {
-    const [ GrafSVG, setgrafSVG ] = useState(null);
-    const [ GrafCSS, setgrafCSS ] = useState(null);
-    useEffect( () => {
-        // Merk en midlertidig URL som henter fra den lokale serveren du selv må ha satt opp for Fintech Enigma API'en
-        // Se https://github.com/fintech-enigma/fintech-enigma-api.
-        axios.get('http://127.0.0.1:5000/Fantacyfond_Historisk/')
-        .then(res => {
-            console.log(res);
-            setgrafSVG(res.data.data.svg);
-            setgrafCSS(res.data.data.CSS);
-        });
-    }, []);
-    return (
-        <div>
-            <style>{GrafCSS}</style>
-            {parse(String(GrafSVG || '<p>Laster graf ...</p>'))}
-        </div>  
-    );
-}
-
-<Graf></Graf>
-
--->
 
 export const LineGraf = () => {
     const [ dataset, setDataset ] = useState([]);
@@ -107,21 +79,23 @@ export const LineGraf = () => {
     )
 }
 
-export const Fondsammensetning = () => {
-    return (<div>
-        <ul>
-            <li>Aksje 1 - x%</li>
-            <li>Aksje 2 - x%</li>
-            <li>Aksje 3 - x%</li>
-            <li>Aksje 4 - x%</li>
-            <li>Aksje 5 - x%</li>
-        </ul>
-    </div>);
-}
-
 
 <LineGraf></LineGraf>
 
-## Dette er fondets sammensetning.
+### Headline
 
-<Fondsammensetning />
+Gjennom oktober og november konurerte vi i DN sitt <a style={{color: "#06ADF4"}} href={'https://investor.dn.no/#!/Fantasyfond/Profil/100593'}>Fantasy Fond</a>
+
+Dette var proteføljen vår.
+
+- NORDIC SEMICONDUCTOR
+- CADELER A/S
+- KONGSBERG GRUPPEN
+- DNB BANK ASA
+- GJENSIDIGE FORSIKRING
+- EUROPRIS
+- AKER BP
+- AUSTEVOLL SEAFOOD
+- EQUINOR
+- SCATEC ASA
+- SALMAR
