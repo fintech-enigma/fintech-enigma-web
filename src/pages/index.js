@@ -17,8 +17,8 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/Fondsforvaltning%20og%20Algoritmisk%20trading">
-            Fondsforvaltning og Algortimisk trading
+            to="/docs/Fondsforvaltning og Algoritmisk trading">
+            Fondsforvaltning og Algortimisk Trading
           </Link>
         </div>
       </div>
