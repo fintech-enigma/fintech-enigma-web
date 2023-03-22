@@ -1,1 +1,24 @@
-### Masse skryt av Eddiball sin Trading algo
+## RSI - algoritme
+
+import styles from './css/algos.module.css';
+
+<p className={styles.p}>
+    Denne algoritmen bruper API: yfinance for å hente inn informasjon i sanntid fra Yahoo Finance. Algoritmen henter 
+RSI-verdiene fra utvalgte aksjer og sorterer hvilke som har best verdi. Sluttproduktet er en liste med hvilke
+aksjer med best RSI, og gir kjøpssignal dersom verdien er under en utvalgt verdi. 
+</p>
+
+<ul className={styles.ul}>
+  <li>Utvikler Edvard Sander Bae Mysen</li>
+</ul>
+
+
+## Teknisk Nivå - algoritme
+
+Dette er primært en videreutvikling av RSI-algoritmen. Denne algoritmen henter inn info om RSI, Stochastic, MACD, ADX
+og SMA 20, 50, 100 og 200 fra Yahoo Finance. Videre gir den en poengsum for hver av de tekniske nivåene, summerer
+disse og gir en totalscore. Denne algoritmen er utviklet for å gi en god innsikt i hvilke askje som har best
+tekniske nivåer.
+<ul className={styles.ul}>
+  <li>Utvikler Edvard Sander Bae Mysen</li>
+</ul>
