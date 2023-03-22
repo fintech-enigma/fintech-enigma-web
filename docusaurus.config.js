@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Fintech Enigma',
   tagline: 'Bindeleddet mellom ITØK-studenter og næringslivet',
-  url: 'https://github.com/fintech-enigma/fintech-enigma-web',
+  url: 'https://fintechenigmaweb.onrender.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
