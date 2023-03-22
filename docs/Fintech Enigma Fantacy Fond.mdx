@@ -9,17 +9,10 @@ export const LineGraf = () => {
     const [ dataset, setDataset ] = useState([]);
     const [ labels, setLabels ] = useState([]);
     useEffect( () => {
-        axios.get( ('https://fondet-fintechenigma.onrender.com/getFunds') )
+        axios.get( ('/dataset/fantacyFond.json') )
         .then(res => {
-            console.log(res.data);
-            if(res.data.status === "OK"){
-                setDataset(res.data.dataset.map(e => e.price));
-                setLabels(res.data.dataset.map(e => e.time));
-                console.log(labels);
-            }
-            else{
-                alert(res.data.status);
-            }
+            setDataset(res.data.map(e => e.price));
+            setLabels(res.data.map(e => e.time));
         });
     }, []);
     return (
