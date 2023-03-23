@@ -6,7 +6,7 @@ import styles from './styles.module.css';
 const FeatureList1 = [
   {
     title: 'PORTEFØLJE',
-    url: "docs/Alogritmeportefølje"
+    url: "docs/Algoritmeportefolje"
     //Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default
   }
 ];
