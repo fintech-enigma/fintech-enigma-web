@@ -1,10 +1,19 @@
 import styles from './css/omFE.module.css';
+import { useState, useEffect } from 'react';
 
 <!--- Lager en React Komponent for Logoen og bestemmer bildeegenskapene i ./css/omFE.modules.css filen --->
 export const HovedLogo = ({children}) => {
+    const [theme, setItems] = useState([]);
+    useEffect(() => {
+    const theme = (localStorage.getItem('theme'));
+        if (theme) {
+            setItems(theme);
+        }
+    }, []);
+    console.log(theme);
     return (
             <div className={styles.HovedLogo}>
-                <img src={"dark" === "dark" ? '/img/OneLinerDark.svg' : '/img/OneLiner.svg'} />
+                <img src={theme === "dark" ? '/img/OneLinerDark.svg' : '/img/OneLiner.svg'} />
             </div>
     );
 }
