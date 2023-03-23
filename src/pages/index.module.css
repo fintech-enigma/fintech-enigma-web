@@ -10,9 +10,10 @@
   overflow: hidden;
   /* background-color: #1a759b; */
   background-image: url('/img/Bubbles.jpeg');
+  background-color: #e9f8ff;
   background-position: center;
   background-size: 100%;
-  background-repeat: no-repeat;
+  background-repeat:no-repeat;
   color:black; 
 }
 

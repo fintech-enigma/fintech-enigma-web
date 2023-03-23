@@ -18,7 +18,7 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/Fondsforvaltning og Algoritmisk trading">
-            Fondsforvaltning og Algortimisk Trading
+            Fondsforvaltning og Algoritmisk trading
           </Link>
         </div>
       </div>
