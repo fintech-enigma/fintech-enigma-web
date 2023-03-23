@@ -25,10 +25,9 @@ const FeatureList2 = [
 ];
 
 function Feature({title, url}) {
-  const mode = (localStorage.getItem('theme'));
   return (
     <div className={styles.title}>
-      <a href={url}><h1 className={mode}>{title}</h1></a>
+      <a href={url}><h1>{title}</h1></a>
     </div>
     // <div>
     //   <div className="text--center">

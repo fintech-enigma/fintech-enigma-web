@@ -1,15 +1,15 @@
 import styles from './css/omFE.module.css';
 
 <!--- Lager en React Komponent for Logoen og bestemmer bildeegenskapene i ./css/omFE.modules.css filen --->
-export const HovedLogo = ({children, theme}) => {
-    return (<div className={styles.HovedLogo}>
-        <img src={theme === "dark" ? '/img/OneLinerDark.svg' : '/img/OneLiner.svg'} />
-    </div>);
+export const HovedLogo = ({children}) => {
+    return (
+            <div className={styles.HovedLogo}>
+                <img src={"dark" === "dark" ? '/img/OneLinerDark.svg' : '/img/OneLiner.svg'} />
+            </div>
+    );
 }
 
-export const theme = localStorage.getItem('theme');
-
-<HovedLogo theme={theme}></HovedLogo>
+<HovedLogo></HovedLogo>
 
 Fintech Enigma ble opprettet av studenter fra sivilingeniørprogrammet Informasjonsteknologi og økonomi (ITØK) ved UIB høsten 2022. 
 Gruppen har to formål; å forvalte linjeforeningen Enigma sine oppsparte midler og å utvikle tradingalgoritmer. Vi er delt inn i to undergrupper som har ansvar for hvert av disse målene. 
