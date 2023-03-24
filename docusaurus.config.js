@@ -88,7 +88,7 @@ const config = {
             // title: 'Docs',
             items: [
               {
-                html: `<a href="https://www.instagram.com/enigma.uib/" target="_blank"><img src="/img/Enigma-orginal-svg.svg" style="width: auto; height: 8rem;"></a>`
+                html: `<a href="https://www.instagram.com/enigma.uib/" target="_blank"><img src="/img/Enigma-orginal-svg.svg" style="width: auto; height: 10rem;"></a>`
               },
               {
                 html: 'Underordnet linjeforeningen <a href="https://www.instagram.com/enigma.uib/" style="color: #06ADF4;" target="_blank">Enigma</a>',
@@ -114,6 +114,19 @@ const config = {
               {
                 label: 'Fosswinckels gate 14, 5007 Bergen',
                 href: 'https://goo.gl/maps/L6EmoWn5wHDZ9dj96'
+              },
+              {
+                html: `<br>
+                  <strong>Kontakt oss</strong>
+                `
+              },
+              {
+                label: "Epost",
+                href: "mailto: fintechenigma@gmail.com"
+              },
+              {
+                label: "Kontaktsjema",
+                href: "/docs/Kontakt_oss"
               }
               // {
               //   label: 'Facebook',
