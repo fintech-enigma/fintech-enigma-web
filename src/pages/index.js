@@ -14,11 +14,12 @@ function HomepageHeader() {
       <div className="container">
         <h1 className="hero__title">{siteConfig.title}</h1>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <p style={{fontSize: "1.1rem", margin: "-1rem 0px 1rem 0px"}}>- Fondsforvaltning og algoritmisk trading -</p>
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/Fondsforvaltning og Algoritmisk trading">
-            Fondsforvaltning og Algoritmisk trading
+            to="/docs/Nordnetportefolje">
+            Se Fintech Enigma Fondet
           </Link>
         </div>
       </div>

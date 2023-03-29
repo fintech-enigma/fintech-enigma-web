@@ -12,7 +12,7 @@ const config = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/FEdark.svg',
+  favicon: 'img/FE.svg',
   
 
   // GitHub pages deployment config.
