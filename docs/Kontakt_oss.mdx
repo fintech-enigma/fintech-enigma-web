@@ -1,7 +1,70 @@
 # Kontakt oss
 
-<h3 style={{"font-weight": "400"}}>Vi er å kontakte på mail:</h3>
+import { useState, useCallback, useEffect } from 'react';
+import axios from 'axios';
+import styles from './css/Kontakt.module.css'
 
-<h4 style={{"font-weight": "400"}}>E-post: <a href="mailto:fintechenigma@gmail.com" style={{color: "#06ADF4"}}>fintechenigma@gmail.com</a></h4>
 
 Eventuelt ta direkte kontakt med noen i ledelsen. 
+
+
+export const ContactForm = () => {
+    const [status, setStatus] = useState({});
+    const [navn, setNavn] = useState("");
+    const [email, setEmail] = useState("");
+    const [title, setTitle] = useState("");
+    const [message, setMessage] = useState("");
+    const URL = 'https://fintechenigmaapi.onrender.com//KontaktFintechEnigma/';
+    const send = () => useCallback(() => {
+        const melding = {
+            navn: navn,
+            epost: email,
+            tittel: title,
+            melding: message
+        };
+        const [ status, setStatus ] = useState({});
+        useEffect(() => {
+            axios.post(URL, melding)
+            .then(res => setStatus(res.data.status))
+        }, [])
+        if(status && status === "OK"){
+            console.log(status);
+            // Bytt ut skjemaet med en `Takk for at du tok kontakt` melding av noe slag
+        }
+        else if (status && status !== "OK"){
+            alert(status);
+        }
+    }, []);
+    return (
+        <div class = 'skjema'>
+            <div class="form-element">
+                <label for="full-name">Navn: </label>
+                <input onChange={e => setNavn(e.target.value)} type="text" id="full-name" required></input>
+            </div>
+            <div class="form-element">
+                <label for="email">E-post: </label>
+                <input onChange={e => setEmail(e.target.value)} type="email" id="email" required></input>
+            </div>
+            <div class="form-element">
+                <label for="title">Tittel: </label>
+                <input onChange={e => setTitle(e.target.value)} type="text" id="title" required></input>
+            </div>
+            <div class="form-element">
+                <label for="message">Melding: </label>
+                <textarea onChange={e => setMessage(e.target.value)} value={message} id="message" rows="6" required />
+            </div>
+            <div class="form-element">
+                <input onClick={send} type="submit" id="submit-button" value="Send"></input>
+            </div>
+        </div>
+    );
+}
+
+
+# Kontakt oss
+
+<ContactForm></ContactForm>
+
+<h3 style={{"font-weight": "400"}}>Kontakt oss på mail:</h3>
+
+<h4 style={{"font-weight": "400"}}>E-post: <a href="mailto:fintechenigma@gmail.com" style={{color: "#06ADF4"}}>fintechenigma@gmail.com</a></h4> 
