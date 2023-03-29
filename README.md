@@ -4,6 +4,8 @@
 
 Hjemmesiden til Fintech Enigma. Laget i Docusaurs av studenter ved [ITØK](https://www.uib.no/studier/MASV-IT%C3%98K), UiB. 
 
+[fintechenigma.no/](https://www.fintechenigma.no/)
+
 ## Installasjon.
 
 1. Klon Git-repoet:
