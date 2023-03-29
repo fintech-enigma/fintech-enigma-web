@@ -1,0 +1,33 @@
+.portefolje{
+    margin: 2rem;
+}
+
+.bar{
+    width: 20rem;
+    height: 2.5rem;
+    border: solid black 2px;
+    border-radius: 0.8rem;
+    margin: 1rem 0px 1rem 0px;
+    overflow: hidden;
+    text-align: center;
+    cursor: pointer;
+    transition: 250ms;
+    user-select: none;
+}
+
+.bar:hover{
+    opacity: 0.75;
+}
+
+.bar>div{
+    height: 100%;
+    background-color: rgb(75, 192, 192);
+    color: #e9f8ff;
+    font-size: 1rem;
+}
+
+.bar>span{
+    position: relative;
+    top: -1.8rem;
+    margin: auto
+}

@@ -26,7 +26,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Porteføljeoversikt',
-      items: ['Fondsforvaltning og Algoritmisk trading', 'Algoritmeportefolje' ,'Fintech Enigma Fantacy Fond'],
+      items: ['Nordnetportefolje', 'Fondsforvaltning og Algoritmisk trading', 'Algoritmeportefolje' ,'Fintech Enigma Fantacy Fond'],
     },
     {
       type: 'category',

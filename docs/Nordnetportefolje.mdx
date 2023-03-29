@@ -1,0 +1,117 @@
+# Fintech Enigma Fondet
+
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Line } from 'react-chartjs-2';
+
+import portefolje from './portefolje/portefolje.json';
+
+import styles from './css/Nordnet.module.css';
+
+export const NordnetGraf = () => {
+    const [ status, setStatus ] = useState({});
+    const [ dataset, setDataset ] = useState([]);
+    const [ labels, setLabels ] = useState([]);
+    useEffect( () => {
+        axios.get( ('https://fintechenigmaapi.onrender.com/getNordnetFunds') )
+        .then(res => {
+            setDataset(res.data.dataset); //.map(e => Number(e.toFixed(4)));
+            setStatus(res.data.status);
+            setLabels(res.data.labels);
+        });
+    }, []);
+    console.log(dataset);
+    console.log(labels);
+    return (
+        <div>
+            <Line 
+                data={{
+                    labels: labels.slice(30, labels.length),
+                    datasets: [{
+                        label: 'Fintech Enigma Fondet',
+                        data: dataset.slice(30, dataset.length),
+                        borderWidth: 1,
+                        fill: false,
+                        lineTension: 0.1,
+                        borderColor: 'rgb(75, 192, 192)',
+                    }]
+                }}
+                height={400}
+                width={600}
+                options={{
+                    scaleShowLabels : false,
+                    maintainAspectRatio: false,
+                    scales: {
+                        yAxes: [
+                            {
+                                ticks: {
+                                    display: true,
+                                    autoSkip: true,
+                                    maxTicksLimit: 10,
+                                    callback: val => {
+                                        return Number(val).toFixed(2) + "%";
+                                    }
+                                }
+                            }
+                        ],
+                        xAxes: [
+                        {
+                            ticks: {
+                                display: true,
+                                autoSkip: true,
+                                maxTicksLimit: 10,
+                                callback: val => {
+                                    const Monts = "Jan,Feb,Mar,Apr,Mai,Jun,Jul,Aug,Sep,Okt,Nov,Des".split(",");
+                                    const [ year, month, date ] = val.split("-");
+                                    const thisMonth = Monts[Number(month)-1];
+                                    const thisDate = Number(date);
+                                    return `${thisDate}. ${thisMonth} ${year}`;
+                                }
+                            }
+                        }],
+                        y: {
+                            beginAtZero: false
+                        }
+                    },
+                    elements: {
+                        point:{
+                            radius: 0
+                        }
+                    },
+                    hover: {
+                        intersect: false,
+                        mode: 'index'
+                    },
+                    plugins: {
+                        tooltip: {
+                          intersect: false
+                        }
+                      }
+                }}
+            />
+        </div>
+    )
+}
+
+export const AndelBar = ({children, andel, aksje}) => {
+    return(
+        <div className={styles.bar}>
+            <div style={{width: `${((andel/4001)*100).toFixed(1)}%`}}></div>
+            <span>{aksje} {`${((andel/4001)*100).toFixed(1).replace(".", ",")}%`}</span>
+        </div>
+    )
+}
+
+export const Portefolje = () => {
+    return (
+        <div className={styles.portefolje}>
+            {portefolje.sort((a, b) => b.andel - a.andel).map((props, idx) => <AndelBar key={idx} {...props}/>)}
+        </div>
+    )
+}
+
+<NordnetGraf />
+
+## Porteføljesammensettning
+
+<Portefolje />
