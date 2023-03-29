@@ -24,6 +24,7 @@ export const NordnetGraf = () => {
     console.log(labels);
     return (
         <div>
+        <h3 style={{fontWeight: "400"}}>Utvikling: <span style={{color: dataset[dataset.length-1] >= 0 ? "green" : "red"}}>{dataset[dataset.length-1]}%</span></h3>
             <Line 
                 data={{
                     labels: labels.slice(30, labels.length),
