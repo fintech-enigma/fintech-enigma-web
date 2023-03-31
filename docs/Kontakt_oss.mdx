@@ -1,7 +1,77 @@
 # Kontakt oss
 
-<h3 style={{"font-weight": "400"}}>Vi er å kontakte på mail:</h3>
+import { useState, useCallback, useEffect } from 'react';
+import axios from 'axios';
+import styles from './css/Kontakt.module.css'
 
-<h4 style={{"font-weight": "400"}}>E-post: <a href="mailto:fintechenigma@gmail.com" style={{color: "#06ADF4"}}>fintechenigma@gmail.com</a></h4>
 
-Dere kan også gjerne ta kontakt direkte med noen i ledelsen.
+<h3 style={{fontWeight: "400"}}>Vi er å kontakte på mail:</h3>
+
+<h4 style={{fontWeight: "400"}}>E-post: <a href="mailto:fintechenigma@gmail.com" style={{color: "#06ADF4"}}>fintechenigma@gmail.com</a></h4>
+
+Dere kan også gjerne ta kontakt direkte med noen i ledelsen, eller via skjemaet nedenfor. 
+
+
+export const ContactForm = () => {
+    const [epostSendt, setEpostSendt] = useState(false);
+    const URL = 'https://fintechenigmaapi.onrender.com/KontaktFintechEnigma';
+    // const URL = 'http://127.0.0.1:5000/KontaktFintechEnigma'; // Utvikler server
+    const send = e => {
+        e.preventDefault();
+        const [ navn, epost, tittel, melding, checkbox ] = e.nativeEvent.srcElement;
+        if (!checkbox.checked){
+            alert("Vennligst bekreft at du har lest og forstått personvernerklæringen");
+        }
+        if(!navn || !epost || !tittel || !melding){
+            alert("Vennligst fyll inn alle feltene nedenfor.")
+        }
+        axios.post(URL, {
+            navn: navn.value,
+            epost: epost.value,
+            tittel: tittel.value,
+            melding: melding.value
+        })
+        .then(response => {
+            if( response.data.status === "OK"){
+                setEpostSendt(true);
+            }
+            else{
+                alert(response.data.status);
+            }
+        })
+        .catch(err => console.warn(err));
+    }
+    const takkMelding = (<div className={styles.takkmld}>Takk for at du tok kontakt, vi svarer deg så fort vi kan.</div>);
+    const skjemaDiv = (
+        <form className={styles.skjema, styles.container} onSubmit={send} action={URL} method="POST">
+            <div className={styles.form_element}>
+                <label>Navn: </label>
+                <input className={styles.input_text} type="text" placeholder={'Ola Nordmann'} id={styles.full_name} required />
+            </div>
+            <div className={styles.form_element}>
+                <label>E-post: </label>
+                <input className={styles.input_email} type="email" placeholder={'ola.nordmann@eksempel.com'} id={styles.email} required />
+            </div>
+            <div className={styles.form_element}>
+                <label>Tittel: </label>
+                <input className={styles.input_text} type="text" placeholder={'Tittel'} type="text"  id={styles.title} required />
+            </div>
+            <div className={styles.form_element}>
+                <label>Melding: </label>
+                <textarea type="text" className={styles.input_text, styles.input_textarea} placeholder={'Melding'} id={styles.message} rows="6" required />
+            </div>
+            <div className={styles.form_element} style={{marginTop: "-1rem"}}>
+                <label>Jeg har lest og forstått <a style={{color: "#06ADF4"}} href={'/docs/personvernerklaering'} target="_blank">personvernerklæringen</a>. </label>
+                <input type="checkbox" required />
+            </div>
+            <div className={styles.form_element}>
+                <input className={styles.input_submit} type="submit" id={styles.submit_button} value="Send"></input>
+            </div>
+        </form>
+    );
+    if(epostSendt) return takkMelding
+    else return skjemaDiv
+}
+
+
+<ContactForm></ContactForm>

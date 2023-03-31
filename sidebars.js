@@ -41,7 +41,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'For Bedrifter',
-      items: ['Bedriftpresentasjoner','Kontakt_oss'],
+      items: ['Bedriftpresentasjoner','Prisliste Fintech Enigma 2023' ,'Kontakt_oss'],
     }
   ],
 };
