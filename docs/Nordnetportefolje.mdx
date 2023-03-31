@@ -24,7 +24,14 @@ export const NordnetGraf = () => {
     console.log(labels);
     return (
         <div>
-        <h3 style={{fontWeight: "400"}}>Utvikling: <span style={{color: dataset[dataset.length-1] >= 0 ? "green" : "red"}}>{dataset[dataset.length-1]}%</span></h3>
+        <div style={{display: "grid", gridTemplateColumns: "repeat(2, 1fr)"}}>
+            <div style={{textAlign: "left"}}>
+                 <h3 style={{fontWeight: "400"}}>Utvikling: <span style={{color: dataset[dataset.length-1] >= 0 ? "green" : "red"}}>{dataset[dataset.length-1]}%</span></h3>
+            </div>
+            <div style={{textAlign: "right"}}>
+                 <h3 style={{fontWeight: "400"}}>Utvikling i dag: <span style={{color:dataset[dataset.length-1] - dataset[dataset.length-2] >= 0 ? "green" : "red"}}>{(dataset[dataset.length-1] - dataset[dataset.length-2] || 0).toFixed(2)}%</span></h3>
+            </div>
+        </div>
             <Line 
                 data={{
                     labels: labels.slice(30, labels.length),
