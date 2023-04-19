@@ -3,6 +3,8 @@
 import parse from 'html-react-parser'
 import styles from './css/HovedStyret.module.css'
 
+import styles2 from './css/Bedriftpresentasjon.module.css';
+
 import Ledere from './folk/ledelsen.json'
 import Ansvarlige from './folk/ansvarlige.json';
 
@@ -24,6 +26,15 @@ export const FolkBilder = ({children, name, title, img, link}) => {
     )
 }
 
+export const Bilde = ({children, url, alt}) => {
+    return (
+        <div className={styles2.img}>
+            <img src={url} alt={alt}/>
+            <p className={styles2.alt}>{alt}</p>
+        </div>
+    )
+}
+
 
 export const FolkDiv = ({children, folk}) => {
     return (
@@ -35,12 +46,23 @@ export const FolkDiv = ({children, folk}) => {
 
 <!-- Markdown -->
 
+
 <Header>Ledelsen</Header>
 <hr/>
 <FolkDiv folk={Ledere} />
 
 <br/>
 
+<Header>Utviklere</Header>
+<hr/>
+
+<Bilde url={'/img/Utviklere.jpg'} alt={'Fintech Enigma Utviklere 2023 / 2024'}/>
+
+<br/>
+
+
 <Header>Ansvarlige</Header>
 <hr/>
 <FolkDiv folk={Ansvarlige} />
+
+
