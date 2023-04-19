@@ -17,10 +17,16 @@
         "img": "https://media.licdn.com/dms/image/D4D03AQGVhRHVfsjEag/profile-displayphoto-shrink_400_400/0/1679426101710?e=1684972800&v=beta&t=b7OEo30OgsF1a4RoMo4iCu5NUQc_OyRQ-A-h-sEF394",
         "link": "https://www.linkedin.com/in/emilie-pedersen-0b956a265/"
     },
-        {
+    {
         "name": "Endre Bjørgo",
         "title": "Web-utvikler",
         "img": "https://media.licdn.com/dms/image/D4D03AQFu7ckbyyWQUg/profile-displayphoto-shrink_400_400/0/1666722207709?e=1684368000&v=beta&t=lBtrnI3rVW9BlBwgD0OVXY-c6pgeRgvVH_2cAJWDBFM",
         "link": "https://www.linkedin.com/in/endre-bj%C3%B8rgo-6b1353208/"
+    },
+    {
+        "name": "Sondre Bjørgen Nilsen",
+        "title": "Algoritmeutvikler og Analytiker",
+        "img": "https://media.licdn.com/dms/image/D5603AQHW-hCUbtB1tw/profile-displayphoto-shrink_800_800/0/1681831688184?e=1687392000&v=beta&t=bAS8Bb2ERab7rwgLTjZDbm90PvBEILm6oiQU2PQTDjI",
+        "link": "https://www.linkedin.com/in/sondre-bj%C3%B8rgen-nilsen-65ab87270/"
     }
 ]
