@@ -1,26 +1,90 @@
 # Algoritmeportefølje
 
-## RSI-algoritme
-
 import styles from './css/algos.module.css';
+import ansvarlige from './folk/ansvarlige.json';
 
-<p className={styles.p}>
-    Denne algoritmen bruker API: yfinance for å hente inn informasjon i sanntid fra Yahoo Finance. Algoritmen henter 
-RSI-verdiene fra utvalgte aksjer og sorterer hvilke som har best verdi. Sluttproduktet er en liste med hvilke
-som har best RSI, og gir kjøpssignal dersom verdien er under en utvalgt verdi. 
-</p>
+export const Bilde = ({children, url, alt}) => {
+    return (
+        <div className={styles.img}>
+            <img src={url} alt={alt}/>
+            <p className={styles.alt}>{alt}</p>
+        </div>
+    )
+}
 
-<ul className={styles.ul}>
-  <li>Utvikler Edvard Sander Bae Mysen</li>
+## Trendkanal Algoritme
+
+Denne tradingalgoritmen oppretter en trendkanal basert på topp og bunnpunkter, for så å handle på dette. Trendkanalen starter på nytt/slutter ved signalet fra et moving average. F. eks når moving average skifter fra negativ til positiv stigning starter trendkanalen på nytt. Akkurat nå er strategien å kjøpe og selge seg tilbake inn i trendkanalen hvis prisen treffer en av trendlinjene. Altså, hvis prisen treffer motstandslinjen så shorter den, og vice verca hvis den treffer støtte. Tanken er da at prisen holder seg inne i trendkanalen. Ordren blir behandlet og avsluttet med et trailing stop loss.
+
+<ul>
+  <li><a href={ansvarlige[4].link}>Utviklet av {ansvarlige[4].name}</a></li>
 </ul>
 
+<Bilde url={'https://raw.githubusercontent.com/fintech-enigma/Algoritmeportefolje/main/Trendkanala%20algoritme/Trend.gif'} alt={'Trendkanal Algoritme demonstrert'}/>
 
-## Teknisk Nivå-algoritme
+````c
+...
+// Ny stick, oppdater gammel pris
+   if(IsNewBar()){previousTick = currentTick;}
+   
+   
+   if(!SymbolInfoTick(_Symbol, currentTick)){Print("Failed to print current tick"); return;}
+   
+   // Sjekke posisjoner
+   int cntBuy, cntSell;
+   if(!CountOpenPositions(cntBuy, cntSell)){return;}
+   
+   string   objName_lower  =  "LowerTrend";
+   string   objName_higher =  "UpperTrend";
+   
+   datetime time  =  TimeCurrent();
+   
+   datetime twoBBT = iTime(_Symbol, _Period, 2);
+   
+   
+   //Finne trendlinje prisene
+   double   price_lower   =  ObjectGetValueByTime(0, objName_lower, twoBBT);
+   double   price_higher  =  ObjectGetValueByTime(0, objName_higher, twoBBT);
+...
+````
 
-Dette er primært en videreutvikling av RSI-algoritmen. Denne algoritmen henter inn info om RSI, Stochastic, MACD, ADX
-og SMA 20, 50, 100 og 200 fra Yahoo Finance. Videre gir den en poengsum for hver av de tekniske nivåene, summerer
-disse og gir en totalscore. Denne algoritmen er utviklet for å gi en god innsikt i hvilke aksjer som har best
-tekniske nivåer.
-<ul className={styles.ul}>
-  <li>Utvikler Edvard Sander Bae Mysen</li>
+Klikk <a href={'https://github.com/fintech-enigma/Algoritmeportefolje/tree/main/Trendkanala%20algoritme'} style={{color: "#06ADF4"}}>her</a> for å se resten av koden.
+
+
+## Bollinger Bands Algoritme
+
+Dette er en simpel indikator som bruker bollinger bands og moving average til å opprette kjøps/salgsanbefalinger. Når et candlestick når et upper/lower band, det har gått 30 bars siden sist kjøp/salg og den er i lik trend som det moving average er, vil det komme et kjøps/salgssignal. F. eks dersom moving averaget har negativ stigning, vil kun short signaler komme når et candlestick når det øverste båndet. Det vil ikke oppstå noen kjøpssignaler fordi det er i mot den generelle trenden. Koden ligger vedlagt på github og er skrevet i mql4 som er et innbakt programmeringspråk i handels/analyseplattformen metatrader 4.
+
+<ul>
+  <li><a href={ansvarlige[4].link}>Utviklet av {ansvarlige[4].name}</a></li>
 </ul>
+
+<Bilde url={'https://raw.githubusercontent.com/fintech-enigma/Algoritmeportefolje/main/Bollinger%20bands%20algoritme/BB.jpg'} alt={'Kjøp- og salgsanbefalinger markert med grønne og røde piler'}/>
+
+````c
+...
+      if (i > 0)
+      {
+         if (telleVariabel>30 && low[i] <= BBLower[i] && low[i - 1] > BBLower[i - 1]&& MA[i-1]>MA[i])
+         {
+            BuyArrow[i] = low[i] - (600 * Point);
+            SellArrow[i] = EMPTY_VALUE;
+            telleVariabel = 0;
+         }
+         else if (telleVariabel>30 && high[i] >= BBUpper[i] && high[i - 1] < BBUpper[i - 1] && MA[i-1]<MA[i])
+         {
+            SellArrow[i] = high[i] + (500 * Point);
+            BuyArrow[i] = EMPTY_VALUE;
+            telleVariabel = 0;
+         }
+         else
+         {
+            BuyArrow[i] = EMPTY_VALUE;
+            SellArrow[i] = EMPTY_VALUE;
+            telleVariabel++;
+            
+         }
+      }
+...
+````
+Klikk <a href={'https://github.com/fintech-enigma/Algoritmeportefolje/tree/main/Bollinger%20bands%20algoritme'} style={{color: "#06ADF4"}}>her</a> for å se resten av koden.
