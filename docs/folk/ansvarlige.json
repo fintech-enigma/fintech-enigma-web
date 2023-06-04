@@ -2,31 +2,31 @@
     {
         "name": "Markus Simonsen",
         "title": "Web-utvikler",
-        "img": "https://media.licdn.com/dms/image/D4D03AQE1vtS6rx6SHQ/profile-displayphoto-shrink_800_800/0/1679498614409?e=1684972800&v=beta&t=A2y8PvfhQOuTAZcm0iGcIG_TXgrBs0sgILOHQ7thL1M",
+        "img": "/img/Markus.jpeg",
         "link": "https://www.linkedin.com/in/markus-dybevold-simonsen-7b5207238/"
     },
     {
         "name": "Magnus Gunnarsson",
         "title": "Web-utvikler",
-        "img": "https://media.licdn.com/dms/image/D4D03AQGr4i9Wam2b2Q/profile-displayphoto-shrink_800_800/0/1681911804809?e=1687996800&v=beta&t=2Gby6nq2KMZAo2pFR2IMCLdpUgAhAkIXXYCbhxTazNQ",
+        "img": "/img/Magnus.jpeg",
         "link": "https://www.linkedin.com/in/magnus-gunnarsson-sletten-6a5755268/"
     },
     {
         "name": "Emilie Pedersen",
         "title": "Web-utvikler",
-        "img": "https://media.licdn.com/dms/image/D4D03AQGVhRHVfsjEag/profile-displayphoto-shrink_400_400/0/1679426101710?e=1684972800&v=beta&t=b7OEo30OgsF1a4RoMo4iCu5NUQc_OyRQ-A-h-sEF394",
+        "img": "/img/Emilie.jpeg",
         "link": "https://www.linkedin.com/in/emilie-pedersen-0b956a265/"
     },
     {
         "name": "Endre Bjørgo",
         "title": "Web-utvikler",
-        "img": "https://media.licdn.com/dms/image/D4D03AQFu7ckbyyWQUg/profile-displayphoto-shrink_400_400/0/1666722207709?e=1684368000&v=beta&t=lBtrnI3rVW9BlBwgD0OVXY-c6pgeRgvVH_2cAJWDBFM",
+        "img": "/img/Endre.jpeg",
         "link": "https://www.linkedin.com/in/endre-bj%C3%B8rgo-6b1353208/"
     },
     {
         "name": "Sondre Bjørgen Nilsen",
         "title": "Algoritmeutvikler og Analytiker",
-        "img": "https://media.licdn.com/dms/image/D5603AQHW-hCUbtB1tw/profile-displayphoto-shrink_800_800/0/1681831688184?e=1687392000&v=beta&t=bAS8Bb2ERab7rwgLTjZDbm90PvBEILm6oiQU2PQTDjI",
+        "img": "/img/Sondre.jpeg",
         "link": "https://www.linkedin.com/in/sondre-bj%C3%B8rgen-nilsen-65ab87270/"
     }
 ]
