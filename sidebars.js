@@ -36,7 +36,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Hovedstyret',
-      items: ['Styret 2023 2024', 'Grunnleggere'],
+      items: ['Styret 2023 2024'],
     },
     {
       type: 'category',
