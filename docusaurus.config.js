@@ -135,13 +135,13 @@ const config = {
             ],
           },
           {
-            // title: 'Partnere',
+            title: 'Partnere',
             items: [
-              // {
-              //   html: `
-              //     <a href="https://stacc.com" target="_blank"><img src="https://verdane.com/uploads/2022/06/stacc-logo.png?x95825" style="width: auto; height: 4rem;"></a>
-              //   `
-              // },
+              {
+                html: `
+                  <a href="https://stacc.com" target="_blank"><img src="https://verdane.com/uploads/2022/06/stacc-logo.png?x95825" style="width: auto; height: 4rem;"></a>
+                `
+              },
               // {
               //   html: `
               //     <a href="https://www.soprasteria.no/home" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Sopra_Steria_logo.svg/2560px-Sopra_Steria_logo.svg.png" style="width: auto; height: 3rem;"></a>
