@@ -135,7 +135,7 @@ const config = {
             ],
           },
           {
-            // title: 'Partnere',
+            title: 'Partnere',
             items: [
              {
                html: `
