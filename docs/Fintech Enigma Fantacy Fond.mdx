@@ -1,4 +1,4 @@
-# Fintech Enigma Fantasyfond
+# Fintech Enigma Fantasyfond Konkuranse!
 
 import { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -6,14 +6,45 @@ import parse from 'html-react-parser';
 
 import { Line } from 'react-chartjs-2';
 
+import colors from './graphics/colors.json';
+
 export const LineGraf = () => {
     const [ dataset, setDataset ] = useState([]);
     const [ labels, setLabels ] = useState([]);
+    const [ sortert, setSortert ] = useState([]);
     useEffect( () => {
-        axios.get( ('/dataset/fantacyFond.json') )
+        axios.get( ('https://fintechenigmaapi.onrender.com/getFantacyFunds') )
         .then(res => {
-            setDataset(res.data.map(e => e.price));
-            setLabels(res.data.map(e => e.time));
+            const keys = Object.keys(res.data.fundsDataset);
+            const dataset = [];
+            var labels = [];
+            keys.forEach(person => {
+                const dataPerson = [...res.data.fundsDataset[person]];
+                const times = dataPerson.map(e => e.time);
+                if(labels.length < times.length){
+                    labels = times.reverse();
+                }
+                const rnd = Math.floor(Math.random()*colors.length);
+                dataset.push({
+                    label: person,
+                    data: dataPerson.map(e => e.price).reverse(),
+                    borderWidth: 2, 
+                    fill: false,
+                    lineTension: 0.1,
+                    borderColor: colors[rnd].hex,
+                });
+                colors.pop(rnd);
+            });
+            setSortert(keys.map(e => {
+                const person = dataset.find(a => a.label === e );
+                return {
+                    "person": e, 
+                    "price": person.data.slice(-1)[0],
+                    "color": person.borderColor
+                    }
+            }).sort((a,b) => b.price - a.price));
+            setDataset(dataset);
+            setLabels(labels);
         });
     }, []);
     return (
@@ -21,14 +52,7 @@ export const LineGraf = () => {
             <Line 
                 data={{
                     labels: labels,
-                    datasets: [{
-                        label: 'Fintech Enigma Fondet',
-                        data: dataset,
-                        borderWidth: 2,
-                        fill: false,
-                        lineTension: 0.1,
-                        borderColor: 'rgb(75, 192, 192)',
-                    }]
+                    datasets: dataset
                 }}
                 height={400}
                 width={600}
@@ -69,31 +93,18 @@ export const LineGraf = () => {
                       }
                 }}
             />
+            <br></br>
+            <div>
+                <h2>Lederliste</h2>
+                <ol>{sortert.map(e => 
+                    <li key={e.person}>
+                        <span style={{color: e.color}}>{e.person}: {e.price}kr</span> 
+                        {e.price/100000 >= 1 ? <span style={{color: "green"}}>{"    (+" + ((e.price/100000-1)*100).toFixed(2) + "%)"}</span> : <span style={{color: "red"}}>{"  (" + ((e.price/100000-1)*100).toFixed(2) + "%)"}</span>}</li>)}
+                </ol>
+            </div>
         </div>
     )
 }
 
 
 <LineGraf></LineGraf>
-
-## 
-
-Gjennom oktober og november konkurrerte vi i DN sitt <a style={{color: "#06ADF4"}} href={'https://investor.dn.no/#!/Fantasyfond/Profil/100593'}>Fantasyfond</a>.
-
-Dette var starten på Fintech sin forvaltningsgruppe, der vi satte sammen vårt første fond mens bedriftskontoen ble opprettet. 
-
-Hver høst arrangerer vi en konkuranse mellom medlemmene i <a style={{color: "#06ADF4"}} href={'https://investor.dn.no/#!/Fantasyfond/Liga/971'}>Fintech Enigma Fantasyliga🤑🤑</a>.
-
-Dette var porteføljen vår:
-
-- NORDIC SEMICONDUCTOR
-- CADELER A/S
-- KONGSBERG GRUPPEN
-- DNB BANK ASA
-- GJENSIDIGE FORSIKRING
-- EUROPRIS
-- AKER BP
-- AUSTEVOLL SEAFOOD
-- EQUINOR
-- SCATEC ASA
-- SALMAR
