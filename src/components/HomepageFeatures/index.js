@@ -5,7 +5,7 @@ import styles from './styles.module.css';
 
 const FeatureList1 = [
   {
-    title: 'Fantasyfond Konkuranse',
+    title: 'Fantasyfond Konkurranse',
     url: "docs/Fintech Enigma Fantacy Fond"
     //Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default
   }
