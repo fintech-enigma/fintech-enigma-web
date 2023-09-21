@@ -1,26 +1,27 @@
 [
     {
         "aksje": "Yara",
-        "andel": 825
+        "andel": 813
     },
     {
         "aksje": "DNB",
-        "andel": 1247
+        "andel": 1305
     },
     {
         "aksje": "MOWI",
-        "andel": 885
+        "andel": 983
     },
     {
         "aksje": "Crayon",
-        "andel": 644
+        "andel": 456
     },
     {
-        "aksje": "BGF World Gold A2",
+        "aksje": "Handelsbanken Høyrente A1",
         "andel": 212
     },
     {
-        "aksje": "Kontantbeholdning",
-        "andel": 509
+        "aksje": "Aker BP",
+        "andel": 608
     }
+
 ]
