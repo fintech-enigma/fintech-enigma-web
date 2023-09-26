@@ -108,6 +108,10 @@ const config = {
                 href: 'https://www.instagram.com/fintechenigma.uib/',
               },
               {
+                label: 'LinkedIn',
+                href: 'https://www.linkedin.com/company/fintech-enigma/'
+              },
+              {
                 label: 'GitHub',
                 href: 'https://github.com/fintech-enigma',
               },
