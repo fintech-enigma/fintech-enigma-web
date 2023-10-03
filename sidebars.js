@@ -36,7 +36,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Hovedstyret',
-      items: ['Styret 2023 2024'],
+      items: ['Styret 2023 2024', 'Styret 2022 2023'], 
     },
     {
       type: 'category',
