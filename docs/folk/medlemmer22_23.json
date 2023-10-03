@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Markus Simonsen",
+        "title": "Web-utvikler",
+        "img": "/img/Markus.jpeg",
+        "link": "https://www.linkedin.com/in/markus-dybevold-simonsen-7b5207238/"
+    },
+    {
+        "name": "Magnus Gunnarsson",
+        "title": "Web-utvikler",
+        "img": "/img/Magnus.jpeg",
+        "link": "https://www.linkedin.com/in/magnus-gunnarsson-sletten-6a5755268/"
+    },
+    {
+        "name": "Emilie Pedersen",
+        "title": "Web-utvikler",
+        "img": "/img/Emilie.jpeg",
+        "link": "https://www.linkedin.com/in/emilie-pedersen-0b956a265/"
+    },
+    {
+        "name": "Endre Bjørgo",
+        "title": "Web-utvikler",
+        "img": "/img/Endre.jpeg",
+        "link": "https://www.linkedin.com/in/endre-bj%C3%B8rgo-6b1353208/"
+    },
+    {
+        "name": "Sondre Bjørgen Nilsen",
+        "title": "Algoritmeutvikler",
+        "img": "/img/Sondre.jpeg",
+        "link": "https://www.linkedin.com/in/sondre-bj%C3%B8rgen-nilsen-65ab87270/"
+    }
+]

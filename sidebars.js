@@ -40,6 +40,11 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'Medlemmer',
+      items: ['Medlemmer 23 24' ,'Medlemmer 22 23'],
+    },
+    {
+      type: 'category',
       label: 'For Bedrifter',
       items: ['Bedriftpresentasjoner','Prisliste Fintech Enigma 2023' ,'Kontakt_oss'],
     }

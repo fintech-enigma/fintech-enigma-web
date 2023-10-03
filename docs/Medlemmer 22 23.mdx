@@ -1,0 +1,62 @@
+# Medlemmer 2022/2023
+
+import parse from 'html-react-parser'
+import styles from './css/HovedStyret.module.css'
+
+import styles2 from './css/Bedriftpresentasjon.module.css';
+
+import Ledere from './folk/ledelsen.json'
+import Medlemmer from './folk/medlemmer22_23.json';
+
+export const Header = ({children}) => {
+    return (
+        <h1 className={styles.header}>{children}</h1>
+    )
+}
+
+export const ClickLeader = link => window.open(link, '_blank')
+
+export const FolkBilder = ({children, name, title, img, link}) => {
+    return (
+        <div className={styles.leder} onClick={() => ClickLeader(link)}>
+            <img alt={link} src={img} className={styles.circle}></img>
+            <h3>{name}</h3>
+            <h4>{title}</h4>
+        </div>
+    )
+}
+
+export const Bilde = ({children, url, alt}) => {
+    return (
+        <div className={styles2.img}>
+            <img src={url} alt={alt}/>
+            <p className={styles2.alt}>{alt}</p>
+        </div>
+    )
+}
+
+
+export const FolkDiv = ({children, folk}) => {
+    return (
+        <div className={styles.lederDiv} >
+            { folk.map( (props, idx) => (<FolkBilder key={idx} {...props}/>) ) }
+        </div>
+    )
+}
+
+<!-- Markdown -->
+
+
+
+<Header>Utviklere</Header>
+<hr/>
+<Bilde url={'/img/Utviklere.jpg'} alt={'Fintech Enigma Utviklere 2023 / 2024'}/>
+
+<br/>
+
+
+<Header>Utviklere</Header>
+<hr/>
+<FolkDiv folk={Medlemmer} />
+
+
