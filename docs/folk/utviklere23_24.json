@@ -1,0 +1,56 @@
+[
+    {
+        "name": "Markus Simonsen",
+        "title": "Web-utvikler",
+        "img": "/img/Markus.jpeg",
+        "link": "https://www.linkedin.com/in/markus-dybevold-simonsen-7b5207238/"
+    },
+    {
+        "name": "Magnus Gunnarsson",
+        "title": "Web-utvikler",
+        "img": "/img/Magnus.jpeg",
+        "link": "https://www.linkedin.com/in/magnus-gunnarsson-sletten-6a5755268/"
+    },
+    {
+        "name": "Emilie Pedersen",
+        "title": "Web-utvikler",
+        "img": "/img/Emilie.jpeg",
+        "link": "https://www.linkedin.com/in/emilie-pedersen-0b956a265/"
+    },
+    
+    {
+        "name": "Hans Eirik G. Opsahl",
+        "title": "Web-utvikler",
+        "img": "/img/Hans_eirik.jpeg",
+        "link": "https://www.linkedin.com/in/hans-eirik-opsahl-08530b294?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    },
+
+    {
+        "name": "Ola Haugo Bryn",
+        "title": "Web-utvikler",
+        "img": "/img/Ola.jpeg",
+        "link": "https://no.linkedin.com/in/ola-haugo-bryn-5b4848293"
+    },
+
+    {
+        "name": "Trym Bårdsen",
+        "title": "Web-utvikler",
+        "img": "/img/Trym.jpeg",
+        "link": "https://no.linkedin.com/in/trym-b%C3%A5rdsen-365595294"
+    },
+
+    {
+        "name": "Jenny Ilstad",
+        "title": "Web-utvikler",
+        "img": "/img/Jenny.jpeg",
+        "link": "https://www.linkedin.com/in/jenny-ilstad-12551126b/"
+    },
+
+    {
+        "name": "Benjamin Ryan Gulstad",
+        "title": "Web-utvikler",
+        "img": "/img/Benjamin.jpeg",
+        "link": "https://www.linkedin.com/in/benjamin-ryan-gulstad-424592294?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+    }
+
+]

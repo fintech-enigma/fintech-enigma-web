@@ -1,0 +1,29 @@
+[
+    {
+        "name": "Filip Helland",
+        "title": "Forvalter",
+        "img": "/img/Filip_Helland.jpeg",
+        "link": "https://www.linkedin.com/in/filip-helland-561a56293?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+    },
+    {
+        "name": "Sindre Stolt-Nielsen",
+        "title": "Forvalter",
+        "img": "/img/Sindre.jpeg",
+        "link": "https://www.linkedin.com/in/sindre-stolt-nielsen-775732294/"
+    },
+    {
+        "name": "Avin Pathak",
+        "title": "Forvalter",
+        "img": "/img/Avin_.jpeg",
+        "link": "https://www.linkedin.com/in/avin-pathak-947736294/"
+    },
+
+    {
+        "name": "Alexandra Hatteland",
+        "title": "Forvalter",
+        "img": "/img/Alexandra.jpeg",
+        "link": "https://www.linkedin.com/in/alexandra-hatteland-315544292/"
+    }
+
+
+]
