@@ -71,7 +71,7 @@ const config = {
             position: 'left',
             label: 'Om Fintech Enigma',
           },
-          {to: '/docs/Vedtekter', label: 'Vedtekter', position: 'left'},
+          {to: '/docs/Investeringsfilosofi', label: 'Investeringsfilosofi', position: 'left'},
           // {to: '/docs/DN Graf', label: 'Portefølje', position: 'left'},
           {to: '/blog', label: 'Blogg', position: 'left'},
           {

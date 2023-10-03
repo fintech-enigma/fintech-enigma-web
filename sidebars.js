@@ -21,7 +21,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Om Fintech Enigma',
-      items: ['Om Fintech Enigma', 'Vedtekter'],
+      items: ['Om Fintech Enigma', 'Investeringsfilosofi'],
     },
     {
       type: 'category',
