@@ -1,35 +1,43 @@
 [
     {
         "aksje": "Yara",
-        "andel": 800
+        "andel": 1092
     },
     {
         "aksje": "DNB",
-        "andel": 650
+        "andel": 1214
     },
     {
         "aksje": "Kongsberg Gruppen",
-        "andel": 466
+        "andel": 1389
     },
     {
         "aksje": "Mowi",
-        "andel": 938
+        "andel": 1311
     },
     {
         "aksje": "Heimdal Høyrente A",
-        "andel": 117
+        "andel": 1465
     },
     {
         "aksje": "Aker BP",
-        "andel": 305
+        "andel": 1246
     },
     {
         "aksje": "Storebrand",
-        "andel": 340
+        "andel": 1200
     },
     {
         "aksje": "Frontline Plc",
-        "andel": 213
+        "andel": 1195
+    },
+    {
+        "aksje": "Schibsted",
+        "andel": 1138
+    },
+    {
+        "aksje": "Europris",
+        "andel": 1207
     }
 
 ]
