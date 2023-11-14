@@ -6,18 +6,25 @@ nathaniel:
 
 oscar:
   name: Oscar Bretteville
-  title: Leder for porteføljeforvaltning
+  title: Leder 
   url: https://www.linkedin.com/in/oscar-bretteville-2384941a1/
   image_url: /img/Oscar.jpeg
 
-edvard:
-  name: Edvard Mysen
-  title: Leder
-  url: https://www.linkedin.com/in/edvard-sander-bae-mysen-873a661bb/
-  image_url: /img/Edvard.jpeg
+#edvard:
+  #name: Edvard Mysen
+ # title: Leder
+  #url: https://www.linkedin.com/in/edvard-sander-bae-mysen-873a661bb/
+ # image_url: /img/Edvard.jpeg
 
 mirella:
   name: Mirella Brodschöll
-  title: Sekretær
+  title: Styremedlem
   url: https://www.linkedin.com/in/mirella-brodsch%C3%B6ll-bb3316258/
   image_url: /img/Mirella.jpeg
+
+
+sondre:
+  name: Sondre Nilsen
+  title: Leder for porteføljeforvaltning
+  url: https://www.linkedin.com/in/sondre-bj%C3%B8rgen-nilsen-65ab87270/
+  image_url: /img/Sondre.jpeg
