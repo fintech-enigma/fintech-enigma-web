@@ -105,8 +105,8 @@ export const NordnetGraf = () => {
 export const AndelBar = ({children, andel, aksje}) => {
     return(
         <div className={styles.bar}>
-            <div style={{width: `${((andel/4161)*100).toFixed(1)}%`}}></div>
-            <span>{aksje} {`${((andel/4161)*100).toFixed(1).replace(".", ",")}%`}</span>
+            <div style={{width: `${((andel/12456)*100).toFixed(1)}%`}}></div>
+            <span>{aksje} {`${((andel/12456)*100).toFixed(1).replace(".", ",")}%`}</span>
         </div>
     )
 }
