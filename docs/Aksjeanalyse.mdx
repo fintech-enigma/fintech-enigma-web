@@ -1,0 +1,19 @@
+import parser from 'html-react-parser';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+
+export const Analyse = () => {
+    const [ html, setHtml ] = useState("<h3>Laster...</h3>");
+    useEffect(() => {
+        axios.get('/dataset/Hele_Porteføljen_Analyse_Nyeste.html')
+        .then(res => {
+            setHtml(res.data);
+        })
+        .catch(error => { })
+    }, []);
+    return(
+        parser(html)
+    )
+}
+
+<Analyse />
