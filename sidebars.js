@@ -26,7 +26,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Porteføljeoversikt',
-      items: ['Nordnetportefolje', 'Fondsforvaltning og Algoritmisk trading', 'Algoritmeportefolje'],
+      items: ['Nordnetportefolje', 'Aksjeanalyse', 'Fondsforvaltning og Algoritmisk trading', 'Algoritmeportefolje'],
     },
     {
       type: 'category',

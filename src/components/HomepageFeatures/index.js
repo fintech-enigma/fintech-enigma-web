@@ -5,8 +5,8 @@ import styles from './styles.module.css';
 
 const FeatureList1 = [
   {
-    title: 'Fantasyfond Konkurranse',
-    url: "docs/Fintech Enigma Fantacy Fond"
+    title: 'Aksjeanalyser',
+    url: "docs/Aksjeanalyse"
     //Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default
   }
 ];

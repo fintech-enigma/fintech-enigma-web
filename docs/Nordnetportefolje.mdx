@@ -121,7 +121,6 @@ export const NordnetGraf = () => {
                             <td><strong>Aksje</strong></td>
                             <td><strong>Kjøpspris</strong></td>
                             <td><strong>Andel</strong></td>
-                            <td><strong>Antall Aksjer</strong></td>
                             <td><strong>Dato</strong></td>
                             <td><strong>Dagens Pris</strong></td>
                             <td><strong>Utvikling</strong></td>
@@ -134,7 +133,6 @@ export const NordnetGraf = () => {
                                     <td>{e.aksje}</td>
                                     <td>{e.kostpris}</td>
                                     <td>{((e.andel / fondetsVerdi)*100).toFixed(1)}%</td>
-                                    <td>{e.antall_aksjer}</td>
                                     <td>{`${new Date(e.dato).getDate()}. ${months[new Date(e.dato).getMonth()]} ${new Date(e.dato).getFullYear()}`}</td>
                                     <td>{e.PriceToday}</td>
                                     <td style={{color: e.PriceToday/e.kostpris >= 1 ? "green" : "red"}}>{((e.PriceToday/e.kostpris - 1)*100).toFixed(1)}%</td>
