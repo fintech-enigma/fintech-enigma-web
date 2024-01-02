@@ -21,22 +21,6 @@ export const NordnetGraf = () => {
             setLabels(res.data.labels);
         });
     }, []);
-    const [ portefoljeData, setPortefoljeData ] = useState([]);
-    const [ fondetsVerdi, setFondetsVerdi ] = useState(1);
-    const months = "Jan,Feb,Mars,Apr,Mai,Jun,Jul,Aug,Sep,Okt,Nov,Des".split(",");
-    useEffect( () => {
-        axios.get('https://fintechenigmaapi.onrender.com/getPortefolje')
-        .then(res => {
-            if(res.data.status === "OK"){
-                setPortefoljeData(res.data.portefoljeData);
-                setFondetsVerdi(res.data.FondetsVerdi)
-            }
-            else{
-                alert(res.data.status);
-            }
-        })
-    }, []);
-    console.log(portefoljeData);
     return (
         <div>
         <div style={{display: "grid", gridTemplateColumns: "repeat(2, 1fr)"}}>
@@ -112,8 +96,29 @@ export const NordnetGraf = () => {
                       }
                 }}
             />
-            <br/>
-            <h1>Porteføljesammensettning</h1>
+        </div>
+    )
+}
+// <PortefoljeOversikt portefoljeData={portefoljeData} fondetsVerdi={fondetsVerdi}/>
+
+
+export const PortefoljeOversikt = () => {
+    const [ portefoljeData, setPortefoljeData ] = useState([]);
+    const [ fondetsVerdi, setFondetsVerdi ] = useState(1);
+    const months = "Jan,Feb,Mars,Apr,Mai,Jun,Jul,Aug,Sep,Okt,Nov,Des".split(",");
+    useEffect( () => {
+        axios.get('https://fintechenigmaapi.onrender.com/getPortefolje')
+        .then(res => {
+            if(res.data.status === "OK"){
+                setPortefoljeData(res.data.portefoljeData);
+                setFondetsVerdi(res.data.FondetsVerdi)
+            }
+            else{
+                alert(res.data.status);
+            }
+        })
+    }, []);
+    return(
             <div className={styles.stock_info_container}>
                 <table className={styles.stock_info_table}>
                     <thead>
@@ -142,10 +147,8 @@ export const NordnetGraf = () => {
                     })}
                 </table>
             </div>
-        </div>
-    )
+    );
 }
-// <PortefoljeOversikt portefoljeData={portefoljeData} fondetsVerdi={fondetsVerdi}/>
 
 export const AndelBar = ({children, andel, aksje}) => {
     return(
@@ -166,3 +169,7 @@ export const Portefolje = () => {
 
 
 <NordnetGraf />
+
+## Porteføljeoversikt
+
+<PortefoljeOversikt />
