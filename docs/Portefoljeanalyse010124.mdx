@@ -1,3 +1,5 @@
+# Porteføljeanalyse per 01/01/24
+
 import parser from 'html-react-parser';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -5,11 +7,13 @@ import axios from 'axios';
 export const Analyse = () => {
     const [ html, setHtml ] = useState("<h3>Laster...</h3>");
     useEffect(() => {
-        axios.get('/dataset/Hele_Porteføljen_Analyse_Nyeste.html')
+        axios.get('/dataset/Portefoljeanalyse_010124.html')
         .then(res => {
             setHtml(res.data);
         })
-        .catch(error => { })
+        .catch(error => { 
+            setHtml("Noe gikk galt, vennligst oppdater siden.")
+        })
     }, []);
     return(
         parser(html)
