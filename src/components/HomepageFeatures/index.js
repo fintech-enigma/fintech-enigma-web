@@ -6,7 +6,7 @@ import styles from './styles.module.css';
 const FeatureList1 = [
   {
     title: 'Aksjeanalyser',
-    url: "docs/Aksjeanalyse"
+    url: "docs/Portefoljeanalyse010124"
     //Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default
   }
 ];
