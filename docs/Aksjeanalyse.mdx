@@ -133,7 +133,8 @@ export const SkrivInnAksje = () => {
         e.preventDefault();
         // Add your logic here to handle the form submission
         console.log('Form Data:', formData);
-        axios.post('http://127.0.0.1:5000/analyse', {
+        // axios.post('http://127.0.0.1:5000/analyse', {
+        axios.post('https://fintechenigmaapi.onrender.com/analyse', {
             ticker: formData.ticker,
             time_slot: formData.inndrag,
             index: formData.index
