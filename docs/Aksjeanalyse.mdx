@@ -1,0 +1,205 @@
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import parser from 'html-react-parser';
+import { Line, Bar } from 'react-chartjs-2';
+
+# Analyseplattformen (beta)
+
+export const GraphVlt = ({coords, aksje, type}) => {
+  const labels = coords.x;
+  const dataset = coords.y;
+  const graph = (
+        <div>
+            <Line 
+                data={{
+                    labels: labels, //.slice(30, labels.length),
+                    datasets: [{
+                        label: type + ' ' + aksje,
+                        data: dataset,
+                        borderWidth: 2,
+                        fill: false,
+                        lineTension: 0.1,
+                        borderColor: 'rgb(75, 192, 192)',
+                    }]
+                }}
+                height={400}
+                width={600}
+                options={{
+                    scaleShowLabels : false,
+                    maintainAspectRatio: false,
+                    scales: {
+                        yAxes: [
+                            {
+                                ticks: {
+                                    display: true,
+                                    autoSkip: true,
+                                    maxTicksLimit: 10,
+                                    callback: val => {
+                                        return (Number(val).toFixed(2) + (type === "Daglig volatilitet" ? "%" : ''));
+                                    }
+                                }
+                            }
+                        ],
+                        xAxes: [
+                        {
+                            ticks: {
+                                display: true,
+                                autoSkip: true,
+                                maxTicksLimit: 10,
+                                callback: val => {
+                                    const Monts = "Jan,Feb,Mar,Apr,Mai,Jun,Jul,Aug,Sep,Okt,Nov,Des".split(",");
+                                    const [ year, month, date ] = val.replace("T00:00:00.000Z", "").split("-");
+                                    const thisMonth = Monts[Number(month)-1];
+                                    const thisDate = Number(date);
+                                    return `${thisDate}. ${thisMonth} ${year}`;
+                                }
+                            }
+                        }],
+                        y: {
+                            beginAtZero: false
+                        }
+                    },
+                    elements: {
+                        point:{
+                            radius: 0
+                        }
+                    },
+                    hover: {
+                        intersect: false,
+                        mode: 'index'
+                    },
+                    plugins: {
+                        tooltip: {
+                          intersect: false
+                        }
+                      }
+                }}
+            />
+        </div>)
+    if(coords.x.length === 0) return <span></span>;
+    return graph;
+}
+
+export const PlotBar = ({coords, akjse, type}) => {
+  const risk = coords.dev;
+  const rew = coords.ret;
+  const graph = (<div>
+    <Bar data={{
+      labels: ['Risk-Vlt'],
+      datasets: [
+        {
+          label: ['Risiko'],
+          data: [risk],
+          backgroundColor: 'red'
+        },
+        {
+          label: ['Avkastning'],
+          data: [rew],
+          backgroundColor: 'green'
+        }
+      ]
+    }} options={{
+      scales: {
+        x: { stacked: true },
+        y: { stacked: true },
+        yAxes: [{
+                display: true,
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+      },
+    }} />
+  </div>);
+  if(risk) return graph;
+  return <span></span>;
+}
+
+export const SkrivInnAksje = () => {
+    const [ normalplot, setNormalplt ] = useState({ x: [], y: [] })
+    const [ Vlt, setVlt ] = useState({ x: [], y: [] })
+    const [ RiskRew, setRiskRew ] = useState({dev: 0, ret: 0});
+    const [ output, setOutput ] = useState("");
+    const [ corr, setCorr ] = useState(0);
+    const [ VaR, setVaR ] = useState("");
+    const [formData, setFormData] = useState({
+        ticker: '',
+        inndrag: '1d',
+        index: '',
+    });
+    const [response, setResponse] = useState({});
+    const handleSubmit = (e) => {
+      setOutput("Laster ...");
+        e.preventDefault();
+        // Add your logic here to handle the form submission
+        console.log('Form Data:', formData);
+        axios.post('http://127.0.0.1:5000/analyse', {
+            ticker: formData.ticker,
+            time_slot: formData.inndrag,
+            index: formData.index
+        })
+        .then(res => {
+            if(res.data.status === "OK"){
+                // setResponse(res.data.data);
+                setNormalplt(res.data.data.Norm);
+                setVlt(res.data.data.Vlt);
+                setRiskRew(res.data.data['Risk-Vlt']);
+                setCorr(res.data.data.Corr);
+                // console.log(response);
+                setVaR(res.data.data.VaR);
+                console.log(res.data.data);
+                setOutput(analyse);
+            }
+            else{
+                alert(res.data.status);
+            }
+        })
+    };
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+    };
+    const analyse = (<div>
+    <h2>{formData.ticker} er {(corr*100).toFixed(1)}% korrelert med {formData.index}</h2>
+    <br />
+    <GraphVlt coords={Vlt} type={'Daglig volatilitet'} aksje={formData.ticker}/>
+    <br />
+    <GraphVlt coords={normalplot} type={'Normalisert akjsepris'} aksje={formData.ticker}/>
+    <br />
+    <h2>Forventet risiko for {formData.ticker} mot forventet avkastning.</h2>
+    <PlotBar coords={RiskRew} akjse={formData.ticker} type={'Risiko mot forventet avkastning'} />
+    <br />
+    {parser(String(VaR))}
+    </div>);
+    return(<div>
+      <form onSubmit={handleSubmit}>
+      <label>
+        Ticker:
+        <input type="text" name="ticker" required value={formData.ticker} onChange={handleChange} />
+      </label>
+      <br />
+      <label>
+        Inndrag:
+        <select name="inndrag" value={formData.inndrag} onChange={handleChange}>
+          <option value="1d">1 Day</option>
+          <option value="1wk">1 Week</option>
+          <option value="1mo">1 Month</option>
+          <option value="1y">1 Year</option>
+          <option value="3y">3 Years</option>
+          <option value="5y">5 Years</option>
+          <option value="10y">10 Years</option>
+        </select>
+      </label>
+      <br />
+      <label>
+        Index:
+        <input type="text" name="index" value={formData.index} onChange={handleChange} />
+      </label>
+      <br />
+      <button type="submit">Submit</button>
+    </form>
+    {analyse}
+    </div>);
+}
+
+<SkrivInnAksje />
