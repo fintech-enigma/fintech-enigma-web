@@ -36,7 +36,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'For Studenter',
-      items: ['Bli_med_i_Fintech'],
+      items: ['Bli_med_i_Fintech', 'Aksjeanalyse'],
     },
     {
       type: 'category',
