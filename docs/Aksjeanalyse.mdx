@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import parser from 'html-react-parser';
 import { Line, Bar } from 'react-chartjs-2';
+import styles from './css/Analyse.module.css';
 
 # Analyseplattformen (beta)
 
@@ -119,7 +120,8 @@ export const SkrivInnAksje = () => {
     const [ normalplot, setNormalplt ] = useState({ x: [], y: [] })
     const [ Vlt, setVlt ] = useState({ x: [], y: [] })
     const [ RiskRew, setRiskRew ] = useState({dev: 0, ret: 0});
-    const [ output, setOutput ] = useState("");
+    const [ isLoading, setIsLoading ] = useState(false);
+    const [ formIsSendt, setFormIsSendt ] = useState(false);
     const [ corr, setCorr ] = useState(0);
     const [ VaR, setVaR ] = useState("");
     const [formData, setFormData] = useState({
@@ -129,8 +131,12 @@ export const SkrivInnAksje = () => {
     });
     const [response, setResponse] = useState({});
     const handleSubmit = (e) => {
-      setOutput("Laster ...");
-        e.preventDefault();
+        if(formData.ticker === ""){
+          alert("Du må minst velge en aksje");
+          return;
+        }
+        setIsLoading(true);
+        setFormIsSendt(true);
         // Add your logic here to handle the form submission
         console.log('Form Data:', formData);
         // axios.post('http://127.0.0.1:5000/analyse', {
@@ -149,7 +155,7 @@ export const SkrivInnAksje = () => {
                 // console.log(response);
                 setVaR(res.data.data.VaR);
                 console.log(res.data.data);
-                setOutput(analyse);
+                setIsLoading(false);
             }
             else{
                 alert(res.data.status);
@@ -159,7 +165,9 @@ export const SkrivInnAksje = () => {
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+        setFormIsSendt(false);
     };
+    const loading = (<div className={styles.box}><div className={styles.b}></div></div>);
     const analyse = (<div>
     <h2>{formData.ticker} er {(corr*100).toFixed(1)}% korrelert med {formData.index}</h2>
     <br />
@@ -172,11 +180,10 @@ export const SkrivInnAksje = () => {
     <br />
     {parser(String(VaR))}
     </div>);
-    return(<div>
-      <form onSubmit={handleSubmit}>
+    const formDiv = (<div>
       <label>
         Ticker:
-        <input type="text" name="ticker" required value={formData.ticker} onChange={handleChange} />
+        <input type="text" style={{border: '1px solid #06ADF4', borderRadius: '0.25rem', padding: '0.25rem'}} name="ticker" required value={formData.ticker} onChange={handleChange} />
       </label>
       <br />
       <label>
@@ -193,14 +200,16 @@ export const SkrivInnAksje = () => {
       </label>
       <br />
       <label>
-        Index:
-        <input type="text" name="index" value={formData.index} onChange={handleChange} />
+        Index: Her kan du legge til en aksje / indeks du vil sammenligne aksjen din med. 
+        <input type="text" name="index" style={{border: '1px solid #06ADF4', borderRadius: '0.25rem', padding: '0.25rem'}}  value={formData.index} onChange={handleChange} />
       </label>
       <br />
-      <button type="submit">Submit</button>
-    </form>
-    {analyse}
+      <br />
+      <button style={{border: '1px solid #06ADF4', borderRadius: '0.25rem', padding: '0.25rem', cursor: 'pointer'}}  onClick={handleSubmit} type="submit">Submit</button>
     </div>);
+    if(!formIsSendt && !isLoading) return(<div>{formDiv}</div>);
+    else if(isLoading && formIsSendt) return(<div>{formDiv} <div>{loading} <br/> Laster...</div></div>);
+    else if(!isLoading && formIsSendt) return(<div>{formDiv} {analyse} </div>);
 }
 
 <SkrivInnAksje />
