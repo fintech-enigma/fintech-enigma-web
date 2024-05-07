@@ -16,9 +16,6 @@ export const Bilde = ({children, url, alt}) => {
 
 Denne tradingalgoritmen oppretter en trendkanal basert på topp og bunnpunkter, for så å handle på dette. Trendkanalen starter på nytt/slutter ved signalet fra et moving average. F. eks når moving average skifter fra negativ til positiv stigning starter trendkanalen på nytt. Akkurat nå er strategien å kjøpe og selge seg tilbake inn i trendkanalen hvis prisen treffer en av trendlinjene. Altså, hvis prisen treffer motstandslinjen så shorter den, og vice verca hvis den treffer støtte. Tanken er da at prisen holder seg inne i trendkanalen. Ordren blir behandlet og avsluttet med et trailing stop loss.
 
-<ul>
-  <li><a href={ansvarlige[4].link}>Utviklet av {ansvarlige[4].name}</a></li>
-</ul>
 
 <Bilde url={'https://raw.githubusercontent.com/fintech-enigma/Algoritmeportefolje/main/Trendkanala%20algoritme/Trend.gif'} alt={'Trendkanal Algoritme demonstrert'}/>
 
@@ -55,9 +52,6 @@ Klikk <a href={'https://github.com/fintech-enigma/Algoritmeportefolje/tree/main/
 
 Dette er en simpel indikator som bruker bollinger bands og moving average til å opprette kjøps/salgsanbefalinger. Når et candlestick når et upper/lower band, det har gått 30 bars siden sist kjøp/salg og den er i lik trend som det moving average er, vil det komme et kjøps/salgssignal. F. eks dersom moving averaget har negativ stigning, vil kun short signaler komme når et candlestick når det øverste båndet. Det vil ikke oppstå noen kjøpssignaler fordi det er i mot den generelle trenden. Koden ligger vedlagt på github og er skrevet i mql4 som er et innbakt programmeringspråk i handels/analyseplattformen metatrader 4.
 
-<ul>
-  <li><a href={ansvarlige[4].link}>Utviklet av {ansvarlige[4].name}</a></li>
-</ul>
 
 <Bilde url={'https://raw.githubusercontent.com/fintech-enigma/Algoritmeportefolje/main/Bollinger%20bands%20algoritme/BB.jpg'} alt={'Kjøp- og salgsanbefalinger markert med grønne og røde piler'}/>
 
