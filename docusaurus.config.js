@@ -74,7 +74,7 @@ const config = {
           {to: '/docs/Investeringsfilosofi', label: 'Investeringsfilosofi', position: 'left'},
           // {to: '/docs/DN Graf', label: 'Portefølje', position: 'left'},
           {to: '/blog', label: 'Blogg', position: 'left'},
-          {to: '/docs/Rapporter', label: 'Årsrapport 2023', position: 'left'},
+          {to: '/docs/Rapporter', label: 'Rapporter', position: 'left'},
           {
             href: 'https://github.com/fintech-enigma',
             label: 'GitHub',
