@@ -1,0 +1,110 @@
+# Fintech Enigma Fantasyfond Konkuranse!
+
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import parse from 'html-react-parser';
+
+import { Line } from 'react-chartjs-2';
+
+import colors from './graphics/colors.json';
+
+export const LineGraf = () => {
+    const [ dataset, setDataset ] = useState([]);
+    const [ labels, setLabels ] = useState([]);
+    const [ sortert, setSortert ] = useState([]);
+    useEffect( () => {
+        axios.get( ('https://fintechenigmaapi.onrender.com/getFantacyFunds') )
+        .then(res => {
+            const keys = Object.keys(res.data.fundsDataset);
+            const dataset = [];
+            var labels = [];
+            keys.forEach(person => {
+                const dataPerson = [...res.data.fundsDataset[person]];
+                const times = dataPerson.map(e => e.time);
+                if(labels.length < times.length){
+                    labels = times.reverse();
+                }
+                const rnd = Math.floor(Math.random()*colors.length);
+                dataset.push({
+                    label: person,
+                    data: dataPerson.map(e => e.price).reverse(),
+                    borderWidth: 2, 
+                    fill: false,
+                    lineTension: 0.1,
+                    borderColor: colors[rnd].hex,
+                });
+                colors.pop(rnd);
+            });
+            setSortert(keys.map(e => {
+                const person = dataset.find(a => a.label === e );
+                return {
+                    "person": e, 
+                    "price": person.data.slice(-1)[0],
+                    "color": person.borderColor
+                    }
+            }).sort((a,b) => b.price - a.price));
+            setDataset(dataset);
+            setLabels(labels);
+        });
+    }, []);
+    return (
+        <div>
+            <Line 
+                data={{
+                    labels: labels,
+                    datasets: dataset
+                }}
+                height={400}
+                width={600}
+                options={{
+                    scaleShowLabels : false,
+                    maintainAspectRatio: false,
+                    scales: {
+                        xAxes: [
+                        {
+                            ticks: {
+                                display: true,
+                                autoSkip: true,
+                                maxTicksLimit: 10,
+                                callback: val => {
+                                    const [ day, date, Month ] = val.split(" ");
+                                    return `${day.slice(0,3)} ${date} ${Month.slice(0,3)}`;
+                                    // return `${date} ${Month.slice(0,3)}`;
+                                }
+                            }
+                        }],
+                        y: {
+                            beginAtZero: false
+                        }
+                    },
+                    elements: {
+                        point:{
+                            radius: 0
+                        }
+                    },
+                    hover: {
+                        intersect: false,
+                        mode: 'index'
+                    },
+                    plugins: {
+                        tooltip: {
+                          intersect: false
+                        }
+                      }
+                }}
+            />
+            <br></br>
+            <div>
+                <h2>Lederliste</h2>
+                <ol>{sortert.map(e => 
+                    <li key={e.person}>
+                        <span style={{color: e.color}}>{e.person}: {e.price}kr</span> 
+                        {e.price/100000 >= 1 ? <span style={{color: "green"}}>{"    (+" + ((e.price/100000-1)*100).toFixed(2) + "%)"}</span> : <span style={{color: "red"}}>{"  (" + ((e.price/100000-1)*100).toFixed(2) + "%)"}</span>}</li>)}
+                </ol>
+            </div>
+        </div>
+    )
+}
+
+
+<LineGraf></LineGraf>
