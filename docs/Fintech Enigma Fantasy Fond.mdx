@@ -99,7 +99,7 @@ export const LineGraf = () => {
                 <ol>{sortert.map(e => 
                     <li key={e.person}>
                         <span style={{color: e.color}}>{e.person}: {e.price}kr</span> 
-                        {e.price/100000 >= 1 ? <span style={{color: "green"}}>{"    (+" + ((e.price/100000-1)*100).toFixed(2) + "%)"}</span> : <span style={{color: "red"}}>{"  (" + ((e.price/100000-1)*100).toFixed(2) + "%)"}</span>}</li>)}
+                        {e.price/1000000 >= 1 ? <span style={{color: "green"}}>{"    (+" + ((e.price/1000000-1)*100).toFixed(2) + "%)"}</span> : <span style={{color: "red"}}>{"  (" + ((e.price/1000000-1)*100).toFixed(2) + "%)"}</span>}</li>)}
                 </ol>
             </div>
         </div>
