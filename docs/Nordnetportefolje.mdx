@@ -104,14 +104,14 @@ export const NordnetGraf = () => {
 
 export const PortefoljeOversikt = () => {
     const [ portefoljeData, setPortefoljeData ] = useState([]);
-    const [ fondetsVerdi, setFondetsVerdi ] = useState(1);
+    const [ fondetsAvkast, setFondetsAvkast ] = useState(1);
     const months = "Jan,Feb,Mars,Apr,Mai,Jun,Jul,Aug,Sep,Okt,Nov,Des".split(",");
     useEffect( () => {
         axios.get('https://fintechenigmaapi.onrender.com/getPortefolje')
         .then(res => {
             if(res.data.status === "OK"){
                 setPortefoljeData(res.data.portefoljeData);
-                setFondetsVerdi(res.data.FondetsVerdi)
+                setFondetsAvkast(res.data.fondsokning)
             }
             else{
                 alert(res.data.status);
@@ -120,6 +120,7 @@ export const PortefoljeOversikt = () => {
     }, []);
     return(
             <div className={styles.stock_info_container}>
+                <h2>Fondets Avkastning: <span style={{color: fondetsAvkast > 0 ? "green" : "red"}}>{(fondetsAvkast*100).toFixed(1)}%</span></h2>
                 <table className={styles.stock_info_table}>
                     <thead>
                         <tr>
@@ -137,7 +138,7 @@ export const PortefoljeOversikt = () => {
                                 <tr>
                                     <td>{e.aksje}</td>
                                     <td>{e.kostpris}</td>
-                                    <td>{((e.andel / fondetsVerdi)*100).toFixed(1)}%</td>
+                                    <td>{(e.andel*100).toFixed(1)}%</td>
                                     <td>{`${new Date(e.dato).getDate()}. ${months[new Date(e.dato).getMonth()]} ${new Date(e.dato).getFullYear()}`}</td>
                                     <td>{e.PriceToday}</td>
                                     <td style={{color: e.PriceToday/e.kostpris >= 1 ? "green" : "red"}}>{((e.PriceToday/e.kostpris - 1)*100).toFixed(1)}%</td>
