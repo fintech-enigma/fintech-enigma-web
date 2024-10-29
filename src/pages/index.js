@@ -7,6 +7,7 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 
 import styles from './index.module.css';
 
+
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
@@ -27,12 +28,37 @@ function HomepageHeader() {
   );
 }
 
+// import { useCookies } from "react-cookie";
+// import { useState, useEffect } from 'react';
+// import axios from 'axios';
+
+// export const CheckSession = () => {
+//   const [cookies, setCookie] = useCookies();
+//   if(cookies.SESSION === 'true'){
+//     console.log((cookies.SESSION));
+//   }
+//   else{
+
+//     const [ response, setResponse ] = useState({});
+//     useEffect( () => {
+//         axios.get( ('http://127.0.0.1:5000/newSesion') )
+//         .then(res => {
+//             setResponse(res.data);
+//         });
+//     }, []);
+
+//     console.log(response);
+//     setCookie("SESSION", 'true');
+//   }
+// }
+
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
+  // CheckSession();
   return (
     <Layout
-      title={`${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+    title={`${siteConfig.title}`}
+    description="Description will go into a meta tag in <head />">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

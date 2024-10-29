@@ -26,7 +26,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Porteføljeoversikt',
-      items: ['Nordnetportefolje', 'Fintech Enigma Fantasy Fond', 'Fondsforvaltning og Algoritmisk trading', 'Algoritmeportefolje'],
+      items: ['Nordnetportefolje', 'EMA-SMA-Trading', 'Fondsforvaltning og Algoritmisk trading', 'Algoritmeportefolje'],
     },
     {
       type: 'category',
@@ -36,7 +36,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'For Studenter',
-      items: ['Bli_med_i_Fintech', 'Aksjeanalyse'],
+      items: ['Bli_med_i_Fintech', 'ITØK Studieprogresjon','Aksjeanalyse'],
     },
     {
       type: 'category',

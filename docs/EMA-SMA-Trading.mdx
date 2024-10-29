@@ -1,0 +1,101 @@
+# EMA-SMA Crossover Algoritmisk Trader
+
+<h3>Følg Utviklingen til vår EMA-SMA Crossover algortime som nå live trader AAPL! </h3>
+
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import parse from 'html-react-parser';
+
+import { Line } from 'react-chartjs-2';
+
+import colors from './graphics/colors.json';
+
+export const LineGraph = () => {
+    const [labels, setLabels] = useState([]);
+    const [prices, setPrices] = useState([]);
+    useEffect(() => {
+        axios.get('https://fintechenigmaapi.onrender.com/getEMASMAResults')
+            .then(res => {
+                setLabels(res.data.EMASMAAvkast.map(e => e.time));
+                setPrices(res.data.EMASMAAvkast.map(e => e.avkast));
+            });
+    }, []);
+    return (
+        <div>
+            <h2>Algortmens Avkastning: <span style={{color: Number(prices[prices.length-1]) > 0 ? "green" : "red"}}>{Number(prices[prices.length-1]).toFixed(2)}%</span></h2>
+            <Line
+                data={{
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Prosentvis avkastning til Tradingalgortimen', 
+                            data: prices,
+                            fill: false,
+                            borderColor: '#06ADF4',
+                        },
+                    ],
+                }}
+                height={400}
+                width={600}
+                options={{
+                    scaleShowLabels : false,
+                    maintainAspectRatio: false,
+                    scales: {
+                        xAxes: [
+                        {
+                            ticks: {
+                                display: true,
+                                autoSkip: true,
+                                maxTicksLimit: 10,
+                                callback: val => {
+                                    const date = new Date(val);
+                                    const options = {
+                                        year: 'numeric',
+                                        month: 'short',
+                                        day: 'numeric',
+                                        hour: '2-digit',
+                                        minute: '2-digit',
+                                        hour12: false,
+                                    };
+                                    const formattedDate = date.toLocaleString('en-US', options).replace(',', '');
+                                    return formattedDate;
+                                },
+                            },
+                        }
+                        ],
+                        y: {
+                            beginAtZero: true,
+                        },
+                        yAxes: [
+                            {
+                                callback: val => Number(val).toFixed(2)
+                            }
+                        ]
+                    },
+                    elements: {
+                        point: {
+                            radius: 0,
+                        },
+                    },
+                    hover: {
+                        intersect: false,
+                        mode: 'index',
+                        
+                    },
+                    plugins: {
+                        tooltip: {
+                            intersect: false,
+                        },
+                    },
+                }}
+            />
+        </div>
+    );
+};
+
+
+<LineGraph></LineGraph>
+
+<h4>Tradingen skjer via <a href="https://alpaca.markets/" style={{color: "#06ADF4"}}>Alpaca Markets</a> sin API, flere algoritmer vil komme!</h4>
+
+EMA-SMA crossover er en tradingstrategi som bruker to typer glidende gjennomsnitt: den enkle glidende gjennomsnittet (SMA) og det eksponentielle glidende gjennomsnittet (EMA). Strategien gir kjøpssignal når EMA krysser over SMA, og salgsignal når EMA krysser under SMA.
