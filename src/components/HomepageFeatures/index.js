@@ -5,8 +5,8 @@ import styles from './styles.module.css';
 
 const FeatureList1 = [
   {
-    title: 'Aksjeanalyser',
-    url: "docs/Portefoljeanalyse010124"
+    title: 'EMA-SMA Tradingalgo',
+    url: "docs/EMA-SMA-Trading"
     //Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default
   }
 ];
