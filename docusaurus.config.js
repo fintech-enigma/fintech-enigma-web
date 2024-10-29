@@ -89,10 +89,10 @@ const config = {
             // title: 'Docs',
             items: [
               {
-                html: `<a href="https://www.instagram.com/enigma.uib/" target="_blank"><img src="/img/Enigma-orginal-svg.svg" style="width: auto; height: 10rem;"></a>`
+                html: `<a href="https://www.instagram.com/enigma.uib/" target="_blank"><img src="/img/Enigma_hoved.png" style="width: auto; height: 10rem;"></a>`
               },
               {
-                html: 'Underordnet linjeforeningen <a href="https://www.instagram.com/enigma.uib/" style="color: #06ADF4;" target="_blank">Enigma</a>',
+                html: 'Underordnet linjeforeningen <a href="https://enigma-web.onrender.com/" style="color: #06ADF4;" target="_blank">Enigma</a>',
                 // to: '/docs/Om Fintech Enigma',
               }
             ],
