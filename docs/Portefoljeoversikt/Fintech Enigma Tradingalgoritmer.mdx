@@ -1,6 +1,8 @@
-# EMA-SMA Crossover Algoritmisk Trader
+# Fintech Enigma Trading-algoritmer
 
-<h3>Følg Utviklingen til vår EMA-SMA Crossover algortime som nå live trader AAPL! </h3>
+<h3>Følg Utviklingen til våre trading-algoritmer utviklet av Fintech Enigmas utviklere! </h3>
+
+Vår første live trading-algoritme handler basert på EMA-SMA indikatorer og trader nå AAPL aksjen, følg utviklingen under! Tradingen skjer via <a href="https://alpaca.markets/" style={{color: "#06ADF4"}}>Alpaca Markets</a> sin API, flere algoritmer vil komme!
 
 import { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -8,13 +10,11 @@ import parse from 'html-react-parser';
 
 import { Line } from 'react-chartjs-2';
 
-import colors from './graphics/colors.json';
-
-export const LineGraph = () => {
+export const LineGraph = ({children, title, url, label, utvikler, utviklerUrl}) => {
     const [labels, setLabels] = useState([]);
     const [prices, setPrices] = useState([]);
     useEffect(() => {
-        axios.get('https://fintechenigmaapi.onrender.com/getEMASMAResults')
+        axios.get(url)
             .then(res => {
                 setLabels(res.data.EMASMAAvkast.map(e => e.time));
                 setPrices(res.data.EMASMAAvkast.map(e => e.avkast));
@@ -22,13 +22,13 @@ export const LineGraph = () => {
     }, []);
     return (
         <div>
-            <h2>Algortmens Avkastning: <span style={{color: Number(prices[prices.length-1]) > 0 ? "green" : "red"}}>{Number(prices[prices.length-1]).toFixed(2)}%</span></h2>
+            <h2>Avkastning {title}: <span style={{color: Number(prices[prices.length-1]) > 0 ? "green" : "red"}}>{Number(prices[prices.length-1]).toFixed(2)}%</span></h2>
             <Line
                 data={{
                     labels: labels,
                     datasets: [
                         {
-                            label: 'Prosentvis avkastning til Tradingalgortimen', 
+                            label: label, 
                             data: prices,
                             fill: false,
                             borderColor: '#06ADF4',
@@ -89,13 +89,12 @@ export const LineGraph = () => {
                     },
                 }}
             />
+            <br/>
+            <p style={{fontSize: "0.8em"}}>Algoritmen er utviklet av <a href={utviklerUrl} style={{color: "#06ADF4"}}>{utvikler}</a>.</p>
         </div>
     );
 };
 
 
-<LineGraph></LineGraph>
-
-<h4>Tradingen skjer via <a href="https://alpaca.markets/" style={{color: "#06ADF4"}}>Alpaca Markets</a> sin API, flere algoritmer vil komme!</h4>
-
+<LineGraph url={"https://fintechenigmaapi.onrender.com/getEMASMAResults"} title={"EMA-SMA Crossover"} label={"Avkastning i % EMA-SMA"} utvikler={'Trym Bårdsen'} utviklerUrl={"https://no.linkedin.com/in/trym-b%C3%A5rdsen-365595294"}/>
 EMA-SMA crossover er en tradingstrategi som bruker to typer glidende gjennomsnitt: den enkle glidende gjennomsnittet (SMA) og det eksponentielle glidende gjennomsnittet (EMA). Strategien gir kjøpssignal når EMA krysser over SMA, og salgsignal når EMA krysser under SMA.

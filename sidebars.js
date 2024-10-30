@@ -26,7 +26,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Porteføljeoversikt',
-      items: ['Nordnetportefolje', 'EMA-SMA-Trading', 'Fondsforvaltning og Algoritmisk trading', 'Algoritmeportefolje'],
+      items: ['Portefoljeoversikt/Nordnetportefolje', 'Portefoljeoversikt/Fintech Enigma Tradingalgoritmer', 'Portefoljeoversikt/Fondsforvaltning og Algoritmisk trading', 'Portefoljeoversikt/Teknisk-analyse algoritmer'],
     },
     {
       type: 'category',
