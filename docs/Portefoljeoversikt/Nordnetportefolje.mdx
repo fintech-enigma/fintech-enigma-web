@@ -5,9 +5,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Line } from 'react-chartjs-2';
 
-import portefolje from './portefolje/portefolje.json';
-
-import styles from './css/Nordnet.module.css';
+import styles from '../css/Nordnet.module.css';
 
 export const NordnetGraf = () => {
     const [ status, setStatus ] = useState({});
@@ -173,4 +171,4 @@ export const Portefolje = () => {
 
 ## Porteføljeoversikt
 
-<PortefoljeOversikt />
+<PortefoljeOversikt />../portefolje/portefolje.json
