@@ -16,8 +16,27 @@ export const LineGraph = ({children, title, url, label, utvikler, utviklerUrl}) 
     useEffect(() => {
         axios.get(url)
             .then(res => {
-                setLabels(res.data.EMASMAAvkast.map(e => e.time));
-                setPrices(res.data.EMASMAAvkast.map(e => e.avkast));
+                const s = 45
+                let rawLabels = res.data.EMASMAAvkast.map(e => e.time);
+                let rawPrices = res.data.EMASMAAvkast.map(e => e.avkast);
+                if (rawPrices.length > s) {
+                    // Divide data into chunks to get max 20 points
+                    const chunkSize = Math.ceil(rawPrices.length / s);
+                    const averagedLabels = [];
+                    const averagedPrices = [];
+                    for (let i = 0; i < rawPrices.length; i += chunkSize) {
+                        const chunk = rawPrices.slice(i, i + chunkSize);
+                        const avgPrice = chunk.reduce((sum, val) => sum + val, 0) / chunk.length;
+                        averagedPrices.push(avgPrice);
+                        // Take the middle label in each chunk for the labels array
+                        averagedLabels.push(rawLabels[Math.min(i + Math.floor(chunkSize / 2), rawLabels.length - 1)]);
+                    }
+                    setLabels(averagedLabels);
+                    setPrices(averagedPrices);
+                } else {
+                    setLabels(rawLabels);
+                    setPrices(rawPrices);
+                }
             });
     }, []);
     return (
@@ -35,7 +54,7 @@ export const LineGraph = ({children, title, url, label, utvikler, utviklerUrl}) 
                         },
                     ],
                 }}
-                height={400}
+                height={200}
                 width={600}
                 options={{
                     scaleShowLabels : false,
@@ -68,7 +87,9 @@ export const LineGraph = ({children, title, url, label, utvikler, utviklerUrl}) 
                         },
                         yAxes: [
                             {
-                                callback: val => Number(val).toFixed(2)
+                                ticks: {
+                                    callback: val => Number(val).toFixed(2) + "%"
+                                }
                             }
                         ]
                     },
