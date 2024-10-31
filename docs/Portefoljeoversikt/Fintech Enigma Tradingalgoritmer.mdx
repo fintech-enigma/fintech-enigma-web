@@ -2,7 +2,7 @@
 
 <h3>Følg Utviklingen til våre trading-algoritmer utviklet av Fintech Enigmas utviklere! </h3>
 
-Vår første live trading-algoritme handler basert på EMA-SMA indikatorer og trader nå AAPL aksjen, følg utviklingen under! Tradingen skjer via <a href="https://alpaca.markets/" style={{color: "#06ADF4"}}>Alpaca Markets</a> sin API, flere algoritmer vil komme!
+Våre første trading-algoritmer er nå live og handler basert på EMA-SMA indikatorer og stokastiske trender, de trader nå hhv AAPL og MSFT, følg utviklingen under! Tradingen skjer via <a href="https://alpaca.markets/" style={{color: "#06ADF4"}}>Alpaca Markets</a> sin API, flere algoritmer vil komme!
 
 import { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -119,3 +119,10 @@ export const LineGraph = ({children, title, url, label, utvikler, utviklerUrl}) 
 
 <LineGraph url={"https://fintechenigmaapi.onrender.com/getEMASMAResults"} title={"EMA-SMA Crossover"} label={"Avkastning i % EMA-SMA"} utvikler={'Trym Bårdsen'} utviklerUrl={"https://no.linkedin.com/in/trym-b%C3%A5rdsen-365595294"}/>
 EMA-SMA crossover er en tradingstrategi som bruker to typer glidende gjennomsnitt: den enkle glidende gjennomsnittet (SMA) og det eksponentielle glidende gjennomsnittet (EMA). Strategien gir kjøpssignal når EMA krysser over SMA, og salgsignal når EMA krysser under SMA.
+
+<br/>
+<br/>
+
+<LineGraph url={"https://fintechenigmaapi.onrender.com/getStochasticResults"} title={"Stokastisk Trend Trader"} label={"Avkastning i % Stokastisk Trend"} utvikler={'Nathaniel Stensen'} utviklerUrl={"https://www.linkedin.com/in/nathaniel-stensen-5658aa257/"}/>
+
+Stokastisk Trend algoritmen bruker en Augmented Dickey-Fuller test for å identifisere en stokastisk trend, finner så ut hvilke retning trenden går ved å utføre en autoregressiv regresjon. Kjøpssignal gis dersom det eksisterer en positiv stokastisk trend. 
