@@ -17,8 +17,8 @@ export const LineGraph = ({children, title, url, label, utvikler, utviklerUrl}) 
         axios.get(url)
             .then(res => {
                 const s = 45
-                let rawLabels = res.data.EMASMAAvkast.map(e => e.time);
-                let rawPrices = res.data.EMASMAAvkast.map(e => e.avkast);
+                let rawLabels = res.data.Avkast.map(e => e.time);
+                let rawPrices = res.data.Avkast.map(e => e.avkast);
                 if (rawPrices.length > s) {
                     // Divide data into chunks to get max 20 points
                     const chunkSize = Math.ceil(rawPrices.length / s);
