@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Oscar Bretteville",
+        "title": "Leder",
+        "img": "/img/Oscar.jpeg",
+        "link": "https://www.linkedin.com/in/oscar-bretteville-2384941a1/"
+    },
+    {
+        "name": "Nathaniel Stensen",
+        "title": "Leder for algoritme-og webutvikling",
+        "img": "/img/Nathaniel.jpeg",
+        "link": "https://www.linkedin.com/in/nathaniel-stensen-5658aa257/"
+    },
+    {
+        "name": "Philip Higley",
+        "title": "Leder for porteføljeforvaltning",
+        "img": "/img/Philip_Higley.jpeg",
+        "link": "https://www.linkedin.com/in/nathaniel-stensen-5658aa257/"
+    },
+    {
+        "name": "Sondre Nilsen",
+        "title": "Styremedlem",
+        "img": "/img/Sondre.jpeg",
+        "link": "https://www.linkedin.com/in/sondre-bj%C3%B8rgen-nilsen-65ab87270/"
+    },
+    {
+        "name": "Endre Bjørgo",
+        "title": "Styremedlem",
+        "img": "/img/Endre.jpeg",
+        "link": "https://www.linkedin.com/in/endre-bj%C3%B8rgo-6b1353208/"
+    }
+]
