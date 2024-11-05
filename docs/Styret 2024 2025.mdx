@@ -1,0 +1,55 @@
+# Styret 2024/2025
+
+import parse from 'html-react-parser'
+import styles from './css/HovedStyret.module.css'
+
+import styles2 from './css/Bedriftpresentasjon.module.css';
+
+import Ledere from './folk/ledelsen24_25.json'
+import Ansvarlige from './folk/ansvarlige.json';
+
+export const Header = ({children}) => {
+    return (
+        <h1 className={styles.header}>{children}</h1>
+    )
+}
+
+export const ClickLeader = link => window.open(link, '_blank')
+
+export const FolkBilder = ({children, name, title, img, link}) => {
+    return (
+        <div className={styles.leder} onClick={() => ClickLeader(link)}>
+            <img alt={link} src={img} className={styles.circle}></img>
+            <h3>{name}</h3>
+            <h4>{title}</h4>
+        </div>
+    )
+}
+
+export const Bilde = ({children, url, alt}) => {
+    return (
+        <div className={styles2.img}>
+            <img src={url} alt={alt}/>
+            <p className={styles2.alt}>{alt}</p>
+        </div>
+    )
+}
+
+
+export const FolkDiv = ({children, folk}) => {
+    return (
+        <div className={styles.lederDiv} >
+            { folk.map( (props, idx) => (<FolkBilder key={idx} {...props}/>) ) }
+        </div>
+    )
+}
+
+
+<Header>Ledelsen 2023 - 2024</Header>
+<hr/>
+<FolkDiv folk={Ledere} />
+
+<!--
+<Header>Ledelsen 2023 - 2024</Header>
+<hr/> 
+<Bilde url={'/img/Styret23_24.jpeg'} alt={'Fintech Enigma Ledelsen 2023 / 2024'}/> -->

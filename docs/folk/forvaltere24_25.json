@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Sindre Stolt-Nielsen",
+        "title": "Forvalter",
+        "img": "/img/Sindre_.jpeg",
+        "link": "https://www.linkedin.com/in/sindre-stolt-nielsen-775732294/"
+    },
+    {
+        "name": "Michael Elvebakken",
+        "title": "Forvalter",
+        "img": "/img/Michael_Elvebakken.jpeg",
+        "link": "https://www.linkedin.com/in/michael-elvebakken-2a3b32215/"
+    },
+    {
+        "name": "Marius Nikolai Dale ",
+        "title": "Forvalter",
+        "img": "/img/Marius_Dale.jpeg",
+        "link": "https://www.linkedin.com/in/marius-dale/"
+    },
+    {
+        "name": "Sondre Nilsen",
+        "title": "Forvalter",
+        "img": "/img/Sondre.jpeg",
+        "link": "https://www.linkedin.com/in/sondre-bj%C3%B8rgen-nilsen-65ab87270/"
+    }
+]

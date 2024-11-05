@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Hans Eirik G. Opsahl",
+        "title": "Algoritmeutvikler",
+        "img": "/img/Hans_eirik.jpeg",
+        "link": "https://www.linkedin.com/in/hans-eirik-opsahl-08530b294?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    },
+    {
+        "name": "Trym Bårdsen",
+        "title": "Algoritmeutvikler",
+        "img": "/img/Trym.jpeg",
+        "link": "https://no.linkedin.com/in/trym-b%C3%A5rdsen-365595294"
+    },
+    {
+        "name": "Trym Østensvig",
+        "title": "Algoritmeutvikler",
+        "img": "/img/Trym_Ostensvig.jpeg",
+        "link": "https://www.linkedin.com/in/trym-%C3%B8stensvig-656a862b6/"
+    },
+    {
+        "name": "Endre Bjørgo",
+        "title": "Algoritmeutvikler",
+        "img": "/img/Endre.jpeg",
+        "link": "https://www.linkedin.com/in/endre-bj%C3%B8rgo-6b1353208/"
+    }
+]
