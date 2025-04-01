@@ -19,8 +19,8 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/Portefoljeoversikt/Nordnetportefolje">
-            Se Fintech Enigma Fondet
+            to="/docs/Rapporter">
+            Årsrapport 2024
           </Link>
         </div>
       </div>
