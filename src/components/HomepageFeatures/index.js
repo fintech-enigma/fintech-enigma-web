@@ -5,8 +5,8 @@ import styles from './styles.module.css';
 
 const FeatureList1 = [
   {
-    title: 'Trading-algoritmer',
-    url: "docs/Portefoljeoversikt/Fintech Enigma Tradingalgoritmer"
+    title: 'Analyser',
+    url: "docs/Portefoljeanalyse010124"
     //Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default
   }
 ];
