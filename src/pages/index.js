@@ -15,12 +15,12 @@ function HomepageHeader() {
       <div className="container">
         <h1 className="hero__title">{siteConfig.title}</h1>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <p style={{fontSize: "1.1rem", margin: "-1rem 0px 1rem 0px"}}>- Fondsforvaltning og algoritmisk trading -</p>
+        <p style={{fontSize: "1.1rem", margin: "-1rem 0px 1rem 0px"}}>- Fondsforvaltning og kvantitativ analyse -</p>
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
             to="/docs/Rapporter">
-            Årsrapport 2024
+            Halvårsrapport 2025
           </Link>
         </div>
       </div>
