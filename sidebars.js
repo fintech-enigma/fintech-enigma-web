@@ -31,7 +31,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Aksjeanalyser',
-      items: ['Rapporter', 'Analyseplattformen (Beta)', 'Portefoljeanalyse010124']
+      items: ['Rapporter', 'Aksjeanalyse', 'Portefoljeanalyse010124']
     },
     {
       type: 'category',
