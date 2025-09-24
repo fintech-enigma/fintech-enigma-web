@@ -1,44 +1,43 @@
-# Fintech Enigma Trading-algoritmer
-
 <h3>Følg Utviklingen til våre trading-algoritmer utviklet av Fintech Enigmas utviklere! </h3>
 
-Våre første trading-algoritmer er nå live og handler basert på EMA-SMA indikatorer, stokastiske trender, og en classifier modell, de trader nå hhv AAPL, MSFT, og BAC, følg utviklingen under! Tradingen skjer via <a href="https://alpaca.markets/" style={{color: "#06ADF4"}}>Alpaca Markets</a> sin API, flere algoritmer vil komme!
+Høsten 24 og våren 25 hadde vi tre trading-algoritmer i drift. De handlet basert på EMA-SMA indikatorer, stokastiske trender, og en classifier modell, de traded hhv AAPL, MSFT, og BAC, se hvordan det gikk under.
 
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import parse from 'html-react-parser';
-
 import { Line } from 'react-chartjs-2';
 
-export const LineGraph = ({children, title, url, label, utvikler, utviklerUrl}) => {
+export const LineGraph = ({ data, title, label, utvikler, utviklerUrl }) => {
     const [labels, setLabels] = useState([]);
     const [prices, setPrices] = useState([]);
+    const s = 45;
+    
     useEffect(() => {
-        axios.get(url)
-            .then(res => {
-                const s = 45
-                let rawLabels = res.data.Avkast.map(e => e.time);
-                let rawPrices = res.data.Avkast.map(e => e.avkast);
-                if (rawPrices.length > s) {
+        if (data && data.Avkast) {
+            const sorted = [...data.Avkast].sort((a, b) => a.time - b.time);
+            const rawLabels = sorted.map(e => e.time);
+            const rawPrices = sorted.map(e => e.avkast);
+            
+            if (rawPrices.length > s) {
                     // Divide data into chunks to get max 20 points
-                    const chunkSize = Math.ceil(rawPrices.length / s);
-                    const averagedLabels = [];
-                    const averagedPrices = [];
-                    for (let i = 0; i < rawPrices.length; i += chunkSize) {
-                        const chunk = rawPrices.slice(i, i + chunkSize);
-                        const avgPrice = chunk.reduce((sum, val) => sum + val, 0) / chunk.length;
-                        averagedPrices.push(avgPrice);
+                const chunkSize = Math.ceil(rawPrices.length / s);
+                const averagedLabels = [];
+                const averagedPrices = [];
+                for (let i = 0; i < rawPrices.length; i += chunkSize) {
+                    const chunk = rawPrices.slice(i, i + chunkSize);
+                    const avgPrice = chunk.reduce((sum, val) => sum + val, 0) / chunk.length;
+                    averagedPrices.push(avgPrice);
                         // Take the middle label in each chunk for the labels array
-                        averagedLabels.push(rawLabels[Math.min(i + Math.floor(chunkSize / 2), rawLabels.length - 1)]);
-                    }
-                    setLabels(averagedLabels);
-                    setPrices(averagedPrices);
-                } else {
-                    setLabels(rawLabels);
-                    setPrices(rawPrices);
+                    averagedLabels.push(rawLabels[Math.min(i + Math.floor(chunkSize / 2), rawLabels.length - 1)]);
                 }
-            });
-    }, []);
+                setLabels(averagedLabels.map(t => Number(new Date(t))));
+                setPrices(averagedPrices);
+            } else {
+                setLabels(rawLabels.map(t => Number(new Date(t))));
+                setPrices(rawPrices);
+            }
+        }
+    }, [data]);
     return (
         <div>
             <h2>Avkastning {title}: <span style={{color: Number(prices[prices.length-1]) > 0 ? "green" : "red"}}>{Number(prices[prices.length-1]).toFixed(2)}%</span></h2>
@@ -116,20 +115,23 @@ export const LineGraph = ({children, title, url, label, utvikler, utviklerUrl}) 
     );
 };
 
+import graph1 from "../portefolje/graph1.json";
+import graph2 from "../portefolje/graph2.json";
+import graph3 from "../portefolje/graph3.json";
 
-<LineGraph url={"https://fintechenigmaapi.onrender.com/getStochasticResults"} title={"Stokastisk Trend Trader"} label={"Avkastning i % Stokastisk Trend"} utvikler={'Nathaniel Stensen'} utviklerUrl={"https://www.linkedin.com/in/nathaniel-stensen-5658aa257/"}/>
+<LineGraph data={graph1} title={"Stokastisk Trend Trader"} label={"Avkastning i % Stokastisk Trend"} utvikler={'Nathaniel Stensen'} utviklerUrl={"https://www.linkedin.com/in/nathaniel-stensen-5658aa257/"}/>
 
 Stokastisk Trend algoritmen bruker en Augmented Dickey-Fuller test for å identifisere en stokastisk trend, finner så ut hvilke retning trenden går ved å utføre en autoregressiv regresjon. Kjøpssignal gis dersom det eksisterer en positiv stokastisk trend. 
 
 <br/>
 <br/>
 
-<LineGraph url={"https://fintechenigmaapi.onrender.com/getAIResults"} title={"AI Classifier Trader"} label={"Avkastning i % AI Classifier"} utvikler={'Hans Eirik Opsahl'} utviklerUrl={"https://www.linkedin.com/in/hans-eirik-opsahl-08530b294/"}/>
+<LineGraph data={graph2} title={"AI Classifier Trader"} label={"Avkastning i % AI Classifier"} utvikler={'Hans Eirik Opsahl'} utviklerUrl={"https://www.linkedin.com/in/hans-eirik-opsahl-08530b294/"}/>
 
 AI Classifier algoritmen bruker en classifier til å determinere om en aksje skal opp eller ned i neste periode. Kjøpssignal gis dersom modellen predikerer prisoppgang i neste periode.
 
 <br/>
 <br/>
 
-<LineGraph url={"https://fintechenigmaapi.onrender.com/getEMASMAResults"} title={"EMA-SMA Crossover"} label={"Avkastning i % EMA-SMA"} utvikler={'Trym Bårdsen'} utviklerUrl={"https://no.linkedin.com/in/trym-b%C3%A5rdsen-365595294"}/>
+<LineGraph data={graph3} title={"EMA-SMA Crossover"} label={"Avkastning i % EMA-SMA"} utvikler={'Trym Bårdsen'} utviklerUrl={"https://no.linkedin.com/in/trym-b%C3%A5rdsen-365595294"}/>
 EMA-SMA crossover er en tradingstrategi som bruker to typer glidende gjennomsnitt: den enkle glidende gjennomsnittet (SMA) og det eksponentielle glidende gjennomsnittet (EMA). Strategien gir kjøpssignal når EMA krysser over SMA, og salgsignal når EMA krysser under SMA.
