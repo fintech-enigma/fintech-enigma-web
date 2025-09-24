@@ -26,7 +26,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Porteføljeoversikt',
-      items: ['Portefoljeoversikt/Nordnetportefolje'],
+      items: ['Portefoljeoversikt/Nordnetportefolje', 'Portefoljeoversikt/Fintech Enigma Tradingalgoritmer'],
     },
     {
       type: 'category',
