@@ -31,27 +31,27 @@ const sidebars = {
     {
       type: 'category',
       label: 'Aksjeanalyser',
-      items: ['Rapporter', 'Aksjeanalyse', 'Portefoljeanalyse010124']
+      items: ['Rapporter', 'Analyser', 'Portefoljeanalyse010124']
     },
     {
       type: 'category',
       label: 'For Studenter',
-      items: ['Bli_med_i_Fintech', 'ITØK Studieprogresjon','Aksjeanalyse'],
+      items: ['Bli_med_i_Fintech', 'ITØK Studieprogresjon'],
     },
     {
       type: 'category',
       label: 'Hovedstyret',
-      items: ['Styret 2024 2025', 'Styret 2023 2024', 'Styret 2022 2023'], 
+      items: ['Styret 2025 2026', 'Styret 2024 2025', 'Styret 2023 2024', 'Styret 2022 2023'], 
     },
     {
       type: 'category',
       label: 'Medlemmer',
-      items: ['Medlemmer 24 25', 'Medlemmer 23 24' ,'Medlemmer 22 23'],
+      items: ['Medlemmer 25 26', 'Medlemmer 24 25', 'Medlemmer 23 24' ,'Medlemmer 22 23'],
     },
     {
       type: 'category',
       label: 'For Bedrifter',
-      items: ['Bedriftpresentasjoner','Prisliste Fintech Enigma 2023' ,'Kontakt_oss'],
+      items: ['Bedriftspresentasjon med Enigma1','Kontakt_oss'],
     }
   ],
 };

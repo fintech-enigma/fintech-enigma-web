@@ -17,3 +17,13 @@
     list-style-type: ' 🤝 ';
     margin-top: -1rem;
 }
+
+.lys{
+    list-style-type: '💡 ';
+    margin-top: -1rem;
+}
+
+.pil{
+    list-style-type: '➤ ';
+    margin-top: 0rem;
+}
