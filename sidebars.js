@@ -41,12 +41,12 @@ const sidebars = {
     {
       type: 'category',
       label: 'Hovedstyret',
-      items: ['Styret 2025 2026', 'Styret 2024 2025', 'Styret 2023 2024', 'Styret 2022 2023'], 
+      items: ['Styret 2024 2025', 'Styret 2023 2024', 'Styret 2022 2023'], 
     },
     {
       type: 'category',
       label: 'Medlemmer',
-      items: ['Medlemmer 25 26', 'Medlemmer 24 25', 'Medlemmer 23 24' ,'Medlemmer 22 23'],
+      items: ['Medlemmer 24 25', 'Medlemmer 23 24' ,'Medlemmer 22 23'],
     },
     {
       type: 'category',
