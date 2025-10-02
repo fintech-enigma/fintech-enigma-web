@@ -5,8 +5,8 @@ import styles from './styles.module.css';
 
 const FeatureList1 = [
   {
-    title: 'Analyser',
-    url: "docs/Portefoljeanalyse010124"
+    title: 'ANALYSER',
+    url: "docs/Analyser"
     //Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default
   }
 ];
