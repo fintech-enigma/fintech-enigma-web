@@ -46,7 +46,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Medlemmer',
-      items: ['Medlemmer 24 25', 'Medlemmer 23 24' ,'Medlemmer 22 23'],
+      items: ['Medlemmer 25 26','Medlemmer 24 25', 'Medlemmer 23 24' ,'Medlemmer 22 23'],
     },
     {
       type: 'category',
