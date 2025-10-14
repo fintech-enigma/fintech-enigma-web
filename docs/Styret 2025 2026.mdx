@@ -1,12 +1,12 @@
-# Medlemmer 2025/2026
+# Styret 2025/2026
 
 import parse from 'html-react-parser'
 import styles from './css/HovedStyret.module.css'
 
 import styles2 from './css/Bedriftpresentasjon.module.css';
 
-import Utvikler from './folk/utviklere25_26.json'
-import Forvaltere from './folk/forvaltere25_26.json';
+import Ledere from './folk/ledelsen25_26.json'
+import Ansvarlige from './folk/ansvarlige.json';
 
 export const Header = ({children}) => {
     return (
@@ -45,23 +45,7 @@ export const FolkDiv = ({children, folk}) => {
 }
 
 
-<Header>Analytikere</Header>
+<Header>Ledelsen 2025 - 2026</Header>
 <hr/>
-<FolkDiv folk={Utvikler} />
+<FolkDiv folk={Ledere} />
 
-<Header>Analytikere</Header>
-<hr/>
-<Bilde url={'/img/25.26/hoved.jpeg'} alt={'Fintech Enigma Analytikere 2025 / 2026'}/>
-
-
-<br/>
-
-<Header>Forvaltere</Header>
-<hr/>
-<FolkDiv folk={Forvaltere} />
-
-<Header>Forvaltere</Header>
-<hr/>
-<Bilde url={'/img/Forvalter 25.26/forvaltergruppen.JPEG'} alt={'Fintech Enigma Forvaltere 2025 / 2026'}/>
-
-<br/>
