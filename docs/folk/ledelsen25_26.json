@@ -1,32 +1,26 @@
 [
     {
-        "name": "Oscar Bretteville",
-        "title": "Leder",
-        "img": "/img/Forvalter 25.26/Oscar.jpeg",
-        "link": "https://www.linkedin.com/in/oscar-bretteville-2384941a1/"
-    },
-    {
         "name": "Nathaniel Stensen",
-        "title": "Leder for Analysegruppen",
+        "title": "Leder",
         "img": "/img/25.26/Nathaniel.jpeg",
         "link": "https://www.linkedin.com/in/nathaniel-stensen-5658aa257/"
     },
     {
         "name": "Philip Higley",
-        "title": "Leder for Forvaltningsgruppen",
+        "title": "Nestleder og leder for Forvaltningsgruppen",
         "img": "/img/Forvalter 25.26/Phil.jpeg",
         "link": "https://www.linkedin.com/in/philip-higley-832597209/"
+    },
+    {
+        "name": "Mithun Kohilarajh",
+        "title": "Leder for Analysegruppen",
+        "img": "/img/25.26/Mithun.jpeg",
+        "link": "https://www.linkedin.com/in/mithun-kohilarajh-217a03335"
     },
     {
         "name": "Trym Bårdsen",
         "title": "Nestleder for Analysegruppen",
         "img": "/img/25.26/Trym2.jpeg",
         "link": "https://www.linkedin.com/in/trym-bårdsen-365595294/"
-    },
-    {
-        "name": "Sondre Nilsen",
-        "title": "Nestleder for Forvaltningsgruppen",
-        "img": "/img/Forvalter 25.26/Sondre.jpeg",
-        "link": "https://www.linkedin.com/in/sondre-bj%C3%B8rgen-nilsen-65ab87270/"
     }
 ]
